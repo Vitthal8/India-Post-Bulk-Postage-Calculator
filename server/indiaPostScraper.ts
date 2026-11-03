@@ -132,12 +132,61 @@ const store: PersistentStore = {
   sync_history: [],
 };
 
+function migrateLegacyRateCacheEntries(rateCache: Record<string, RateCacheEntry>): Record<string, RateCacheEntry> {
+  const migrated: Record<string, RateCacheEntry> = {};
+
+  for (const [key, entry] of Object.entries(rateCache)) {
+    const parts = key.split('|');
+    const service = parts[0];
+    const weight = Number(parts[3]);
+    const isLegacyParcelKey =
+      parts.length === 5 &&
+      isDimensionSensitiveService(service) &&
+      /^\d+$/.test(parts[3] || '') &&
+      Number.isFinite(weight);
+
+    if (!isLegacyParcelKey) {
+      migrated[key] = entry;
+      continue;
+    }
+
+    const [lengthCm, widthCm, heightCm] = (parts[4] || '').split('x').map(Number);
+    const normalizedKey = makeRateCacheKey(parts[1], parts[2], weight, service, {
+      lengthCm,
+      widthCm,
+      heightCm,
+    });
+    const current = migrated[normalizedKey];
+    if (!current || current.fetchedAt < entry.fetchedAt) {
+      migrated[normalizedKey] = {
+        ...entry,
+        weightSlab: normalizeWeightForCache(weight, service),
+      };
+    }
+  }
+
+  return migrated;
+}
+
 function loadPersistentStore() {
   try {
     if (fs.existsSync(CACHE_FILE_PATH)) {
       const raw = fs.readFileSync(CACHE_FILE_PATH, 'utf-8');
       const parsed = JSON.parse(raw);
-      if (parsed.rate_cache) store.rate_cache = parsed.rate_cache;
+      if (parsed.rate_cache) {
+        store.rate_cache = migrateLegacyRateCacheEntries(parsed.rate_cache);
+        const hasLegacyParcelKeys = Object.keys(parsed.rate_cache).some((key) => {
+          const parts = key.split('|');
+          return (
+            parts.length === 5 &&
+            isDimensionSensitiveService(parts[0]) &&
+            /^\d+$/.test(parts[3] || '')
+          );
+        });
+        if (hasLegacyParcelKeys) {
+          scheduleSaveStore();
+        }
+      }
       if (parsed.pin_cache) store.pin_cache = parsed.pin_cache;
       if (parsed.pin_exception) store.pin_exception = parsed.pin_exception;
       if (Array.isArray(parsed.sync_history)) store.sync_history = parsed.sync_history.slice(0, 10);
@@ -174,6 +223,20 @@ export function normalizeWeightForCache(weight: number, service: string): string
     if (w >= 51 && w <= 250) return '51-250';
     if (w >= 251 && w <= 500) return '251-500';
   }
+  if (
+    service === 'speed_post_parcel' ||
+    service === 'Speed Post Parcel' ||
+    service === 'SP_INLAND_PARCEL' ||
+    service === 'business_parcel' ||
+    service === 'India Post Parcel (Contractual)' ||
+    service === 'BUSINESS_PARCEL' ||
+    service === 'registered_parcel' ||
+    service === 'India Post Parcel (Retail)' ||
+    service === 'PARCEL'
+  ) {
+    const slabTop = Math.max(500, Math.ceil(w / 500) * 500);
+    return `${slabTop - 499}-${slabTop}`;
+  }
   if (service === 'letter' || service === 'Letter' || service === 'LETTER') {
     const slabTop = Math.ceil(w / 20) * 20;
     return `${slabTop - 19}-${slabTop}`;
@@ -184,9 +247,42 @@ export function normalizeWeightForCache(weight: number, service: string): string
   return String(w);
 }
 
-function makeRateCacheKey(fromPin: string, toPin: string, weight: number, service: string): string {
+function normalizeDimensionForCache(value: number | undefined, fallback: number): string {
+  const dimension = Number.isFinite(value) && Number(value) > 0 ? Number(value) : fallback;
+  return dimension.toFixed(2);
+}
+
+function isDimensionSensitiveService(service: string): boolean {
+  return ['speed_post_parcel', 'business_parcel', 'registered_parcel'].includes(service);
+}
+
+function makeRateCacheKey(
+  fromPin: string,
+  toPin: string,
+  weight: number,
+  service: string,
+  dimensions?: { lengthCm?: number; widthCm?: number; heightCm?: number }
+): string {
   const normWeight = normalizeWeightForCache(weight, service);
-  return `${fromPin.trim()}|${toPin.trim()}|${normWeight}|${service}`;
+  const dimensionKey = isDimensionSensitiveService(service)
+    ? `|${normalizeDimensionForCache(dimensions?.lengthCm, 14)}x${normalizeDimensionForCache(
+        dimensions?.widthCm,
+        9
+      )}x${normalizeDimensionForCache(dimensions?.heightCm, 1)}`
+    : '';
+  return `${fromPin.trim()}|${toPin.trim()}|${normWeight}|${service}${dimensionKey}`;
+}
+
+function makeLegacyExactParcelCacheKey(
+  fromPin: string,
+  toPin: string,
+  weight: number,
+  service: string,
+  dimensions: { lengthCm?: number; widthCm?: number; heightCm?: number }
+): string {
+  return `${service}|${fromPin.trim()}|${toPin.trim()}|${weight}|${dimensions.lengthCm || 14}x${
+    dimensions.widthCm || 9
+  }x${dimensions.heightCm || 1}`;
 }
 
 export function getCacheStats() {
@@ -673,29 +769,42 @@ export async function scrapeLiveTariff(params: LiveTariffParams): Promise<LiveTa
   const effectiveServiceKey =
     params.product === 'speed_post' && isParcelMode ? 'speed_post_parcel' : params.product;
 
-  const cacheKey = isParcelMode
-    ? `${effectiveServiceKey}|${fromPin}|${toPin}|${weight}|${params.lengthCm || 14}x${params.widthCm || 9}x${params.heightCm || 1}`
-    : makeRateCacheKey(fromPin, toPin, weight, effectiveServiceKey);
+  const dimensions = {
+    lengthCm: params.lengthCm,
+    widthCm: params.widthCm,
+    heightCm: params.heightCm,
+  };
+  const cacheKey = makeRateCacheKey(fromPin, toPin, weight, effectiveServiceKey, dimensions);
+  const legacyCacheKey = isParcelMode
+    ? makeLegacyExactParcelCacheKey(fromPin, toPin, weight, effectiveServiceKey, dimensions)
+    : null;
 
-  if (!params.forceRefresh && store.rate_cache[cacheKey]) {
-    const cached = store.rate_cache[cacheKey];
-    const exactGst = cached.gstAmount > 0 ? Math.round(cached.baseTariff * 0.18 * 100) / 100 : 0;
-    return {
-      isLive: true,
-      source: 'cached_portal',
-      latencyMs: 1,
-      productCode: effectiveServiceKey.toUpperCase(),
-      serviceName: cached.service,
-      basePostage: cached.baseTariff,
-      gstAmount: cached.gstAmount,
-      totalPostage: cached.price,
-      exactGstAmount: exactGst,
-      exactTotalPostage: cached.gstAmount > 0 ? Math.round((cached.baseTariff + exactGst) * 100) / 100 : cached.price,
-      distanceKm: cached.distanceKm,
-      isLocal: cached.isLocal,
-      fromCity: store.pin_cache[fromPin]?.city,
-      toCity: store.pin_cache[toPin]?.city,
-    };
+  if (!params.forceRefresh) {
+    const cached = store.rate_cache[cacheKey] || (legacyCacheKey ? store.rate_cache[legacyCacheKey] : undefined);
+    if (cached) {
+      if (!store.rate_cache[cacheKey] && legacyCacheKey) {
+        store.rate_cache[cacheKey] = { ...cached, weightSlab: normalizeWeightForCache(weight, effectiveServiceKey) };
+        scheduleSaveStore();
+      }
+      const exactGst = cached.gstAmount > 0 ? Math.round(cached.baseTariff * 0.18 * 100) / 100 : 0;
+      return {
+        isLive: true,
+        source: 'cached_portal',
+        latencyMs: 1,
+        productCode: effectiveServiceKey.toUpperCase(),
+        serviceName: cached.service,
+        basePostage: cached.baseTariff,
+        gstAmount: cached.gstAmount,
+        totalPostage: cached.price,
+        exactGstAmount: exactGst,
+        exactTotalPostage:
+          cached.gstAmount > 0 ? Math.round((cached.baseTariff + exactGst) * 100) / 100 : cached.price,
+        distanceKm: cached.distanceKm,
+        isLocal: cached.isLocal,
+        fromCity: store.pin_cache[fromPin]?.city,
+        toCity: store.pin_cache[toPin]?.city,
+      };
+    }
   }
 
   // Validate PINs via GET_PINCODE first (also gives us officeId for parcels)
