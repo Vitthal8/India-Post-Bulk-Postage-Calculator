@@ -1,0 +1,6 @@
+{
+  "name": "India Post Bulk Postage Calculator",
+  "description": "Calculate bulk shipping costs, postal circle zones, and statutory GST across India Post Speed Post, Registered Post, Business Parcel, and International services with interactive spreadsheet data grid and CSV import/export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,123 @@
+{
+  "rate_cache": {
+    "400703|411048|fixed|letter_card": {
+      "fromPin": "400703",
+      "toPin": "411048",
+      "weightSlab": "fixed",
+      "service": "Letter Card",
+      "price": 2.5,
+      "baseTariff": 2.5,
+      "gstAmount": 0,
+      "fetchedAt": "2026-11-03T06:14:27.359Z"
+    },
+    "400703|411048|51-250|speed_post": {
+      "fromPin": "400703",
+      "toPin": "411048",
+      "weightSlab": "51-250",
+      "service": "Speed Post",
+      "price": 69,
+      "baseTariff": 59,
+      "gstAmount": 10,
+      "distanceKm": 117,
+      "isLocal": false,
+      "fetchedAt": "2026-11-03T06:14:27.372Z"
+    },
+    "400703|411048|61-80|letter": {
+      "fromPin": "400703",
+      "toPin": "411048",
+      "weightSlab": "61-80",
+      "service": "Letter",
+      "price": 24,
+      "baseTariff": 20,
+      "gstAmount": 4,
+      "fetchedAt": "2026-11-03T06:14:27.376Z"
+    },
+    "400703|411048|fixed|postcard": {
+      "fromPin": "400703",
+      "toPin": "411048",
+      "weightSlab": "fixed",
+      "service": "Postcard",
+      "price": 0.5,
+      "baseTariff": 0.5,
+      "gstAmount": 0,
+      "fetchedAt": "2026-11-03T06:14:27.566Z"
+    },
+    "400701|110001|fixed|postcard": {
+      "fromPin": "400701",
+      "toPin": "110001",
+      "weightSlab": "fixed",
+      "service": "Postcard",
+      "price": 0.5,
+      "baseTariff": 0.5,
+      "gstAmount": 0,
+      "fetchedAt": "2026-11-03T06:14:28.163Z"
+    },
+    "400701|110001|181-200|letter": {
+      "fromPin": "400701",
+      "toPin": "110001",
+      "weightSlab": "181-200",
+      "service": "Letter",
+      "price": 60,
+      "baseTariff": 50,
+      "gstAmount": 10,
+      "fetchedAt": "2026-11-03T06:14:28.175Z"
+    },
+    "400701|110001|fixed|letter_card": {
+      "fromPin": "400701",
+      "toPin": "110001",
+      "weightSlab": "fixed",
+      "service": "Letter Card",
+      "price": 2.5,
+      "baseTariff": 2.5,
+      "gstAmount": 0,
+      "fetchedAt": "2026-11-03T06:14:28.187Z"
+    },
+    "400701|110001|51-250|speed_post": {
+      "fromPin": "400701",
+      "toPin": "110001",
+      "weightSlab": "51-250",
+      "service": "Speed Post",
+      "price": 84,
+      "baseTariff": 72,
+      "gstAmount": 12,
+      "distanceKm": 1137,
+      "isLocal": false,
+      "fetchedAt": "2026-11-03T06:14:28.249Z"
+    }
+  },
+  "pin_cache": {
+    "110001": {
+      "pin": "110001",
+      "city": "NEW DELHI",
+      "state": "Delhi",
+      "office": "New Delhi GPO DC",
+      "officeId": "15840066",
+      "checkedAt": "2026-11-03T06:14:27.875Z"
+    },
+    "400701": {
+      "pin": "400701",
+      "city": "THANE",
+      "state": "Maharashtra",
+      "office": "Ghansoli S.O",
+      "officeId": "24661899",
+      "checkedAt": "2026-11-03T06:14:27.860Z"
+    },
+    "400703": {
+      "pin": "400703",
+      "city": "THANE",
+      "state": "Maharashtra",
+      "office": "Vashi S.O Thane",
+      "officeId": "24661931",
+      "checkedAt": "2026-11-03T06:14:27.044Z"
+    },
+    "411048": {
+      "pin": "411048",
+      "city": "PUNE",
+      "state": "Maharashtra",
+      "office": "Kondhwa Lh B.O",
+      "officeId": "24105917",
+      "checkedAt": "2026-11-03T06:14:26.748Z"
+    }
+  },
+  "pin_exception": {}
+}

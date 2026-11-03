@@ -1,0 +1,354 @@
+curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^&_rsc=-tCoLWNFvHMtlb9L^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608978^$j60^$l0^$h1272119553^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"next-url: /calculate-postage^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"rsc: 1^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^"
+  
+  https://www.google.com/rmkt/collect/414438318/?random=1793609321618&cv=11&fst=1793609321618&fmt=8&bg=ffffff&guid=ON&async=1&en=form_submit&gtm=45be6as1v9253127158za200zd9253127158xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123620777~123691370~123785234~123814184&u_w=1920&u_h=1080&url=https%3A%2F%2Fwww.indiapost.gov.in%2Fcalculate-postage%3Ftab%3Ddomestic%26fromPincode%3D110001%26fromCity%3DNEW%2BDELHI%26fromState%3DDelhi%26fromOfficeId%3D15660153%26toPincode%3D560087%26toCity%3DBENGALURU%2BURBAN%26toState%3DKarnataka%26toOfficeId%3D21660027%26product%3Dparcel%26weight%3D500%26length%3D14%26width%3D9%26height%3D1%26POD%3Dfalse%26ACK%3D0%26REG%3D0%26COD%3D0&rcb=15&frm=0&tiba=Calculate%20Postage%20%7C%20India%20Post&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1503747890.1789552244&uaa=x86&uab=64&uafvl=Not%253AA-Brand%3B8.0.0.0%7CChromium%3B156.0.8078.74%7CGoogle%2520Chrome%3B156.0.8078.74&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&data=event%3Dform_submit&gap.fsrc=2&ept=68&gcp=5
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608978^$j60^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f343082506e6858e043aa33c21f5343550f670f6f^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"BASE_URL_BACKEND_MASTER_DATA_MANAGEMENT^\^",^\^"GET^\^",null,^\^"/domestic-tariffs/speed-post-doc-discount?product-code=SP_INLAND_DOC^&weight=50^&source-pincode=110001^&destination-pincode=560087^\^"^]^"
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608978^$j60^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f343082506e6858e043aa33c21f5343550f670f6f^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"BASE_URL_BACKEND_MASTER_DATA_MANAGEMENT^\^",^\^"GET^\^",null,^\^"/poreg/domestic-tariffs/letter-cards?product-code=LETTER_CARD_S^&source-pincode=110001^&weight=5^\^"^]^"
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608978^$j60^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f343082506e6858e043aa33c21f5343550f670f6f^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"BASE_URL_BACKEND_MASTER_DATA_MANAGEMENT^\^",^\^"GET^\^",null,^\^"/poreg/domestic-tariffs/letters?product-code=LETTER^&weight=50^&source-pincode=110001^\^"^]^"
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608978^$j60^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f343082506e6858e043aa33c21f5343550f670f6f^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"BASE_URL_BACKEND_MASTER_DATA_MANAGEMENT^\^",^\^"GET^\^",null,^\^"/poreg/domestic-tariffs/postcards?product-code=POSTCARD^&source-pincode=110001^\^"^]^"curl --url ^"https://analytics.google.com/g/collect?v=2^&tid=G-X3HX4PKM2P^&gtm=45je6as1h1v9237509155za200zd9237509155xf1^&_p=1793608918802^&_gaz=1^&gcd=13l3l3l3l1l1^&npa=0^&dma=0^&ecid=1272119553^&_eu=AEAAAGQC^&ae=a^&cid=1111940270.1765801333^&ec_mode=a^&frm=0^&pscdl=noapi^&rcb=12^&sr=1920x1080^&uaa=x86^&uab=64^&uafvl=Not^%^253AA-Brand^%^3B8.0.0.0^%^7CChromium^%^3B156.0.8078.74^%^7CGoogle^%^2520Chrome^%^3B156.0.8078.74^&uam=^&uamb=0^&uap=Windows^&uapv=19.0.0^&uaw=0^&ul=en-in^&gaf=2^&_s=5^&tag_exp=115938465~115938468~118897920~118897930~120213116~120385422~120412527~120469145~120469153~121246026~121246034~123691370~123814944^&dp=^%^2Fcalculate-postage^&dl=https^%^3A^%^2F^%^2Fwww.indiapost.gov.in^%^2Fcalculate-postage^%^3Ftab^%^3Ddomestic^%^26fromPincode^%^3D110001^%^26fromCity^%^3DNEW^%^2BDELHI^%^26fromState^%^3DDelhi^%^26fromOfficeId^%^3D15660153^%^26toPincode^%^3D560087^%^26toCity^%^3DBENGALURU^%^2BURBAN^%^26toState^%^3DKarnataka^%^26toOfficeId^%^3D21660027^%^26product^%^3Dletter^%^26weight^%^3D50^%^26length^%^3D14^%^26width^%^3D9^%^26height^%^3D1^%^26POD^%^3Dfalse^%^26ACK^%^3D0^%^26REG^%^3D0^%^26COD^%^3D0^&dr=https^%^3A^%^2F^%^2Fwww.indiapost.gov.in^%^2Fcalculate-postage^%^3Ftab^%^3Ddomestic^%^26fromPincode^%^3D110001^%^26fromCity^%^3DNEW^%^2BDELHI^%^26fromState^%^3DDelhi^%^26fromOfficeId^%^3D15660153^%^26toPincode^%^3D560087^%^26toCity^%^3DBENGALURU^%^2BURBAN^%^26toState^%^3DKarnataka^%^26toOfficeId^%^3D21660027^%^26product^%^3Dparcel^%^26weight^%^3D500^%^26length^%^3D14^%^26width^%^3D9^%^26height^%^3D1^%^26POD^%^3Dfalse^%^26ACK^%^3D0^%^26REG^%^3D0^%^26COD^%^3D0^&sid=1793607952^&sct=66^&seg=1^&dt=Calculate^%^20Postage^%^20^%^7C^%^20India^%^20Post^&en=page_view^&_et=10629^&tfd=404739^" ^
+  -X ^"POST^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-length: 0^" ^
+  -b ^"__Secure-3PAPISID=jo2yqgXdPDW61fOc/A6ZMMrT5wi90tIAc5; __Secure-3PSID=g.a000DQl78Xyq7Q1r-xm3kq-Zg0AHcY23rnWmxuABT98Y98oFcEsYEJ0TiHk4vpwD-kIJlTHKpQACgYKAY4SARISFQHGX2Miwr1nQNyCHVFox5hUdwrVhRoVAUF8yKpK3-d-ydsF9xS4QmXs9Rem0076; NID=CtsDCAESjQMBM9Agl-dcFv8Qx35UmYiCTQec3PkjxQKV-iPQJSqn3yWcZYaIeAWpjnLIpF1tb4hWzFTDt5wrG9t4r09uIo93kOpk4ZO4vXU620tGKO2lX1Ysx_3FOnraFsyi72kWxo3cLSFeRA6ncsfycNhAXlJA0UuuvMIbvZHfBW2a_zu_2cOi7aN6q9NWYmXQV1opX5L8aZNU320Fm_ti-q5CCrrFL5VvAPsmBFoCtRZgsGvPTqve6iUJ5PO09VnPmjLjpvOaPmofpptlJt8Ne28d7YWjeokRHtUbsF5Oe955DM4QaAWRIvxHr4htIQL8GGFsgu1DCxN6c0nGDnzqef_dbvq8NQfjizeBnh-l5GHPm0F9pr7Ps9m8jbVs3DYwdH-t2sxj_bGzMy4l-7n2wTJ7Z-QWj6WoWfytBoBtRvHyP_IL3HkWGM7t00xmnxyfAa9rnJ95dnISNY9K65_X1atfly05Tdc6f_iKBPo1kMPoh5jFIUqZU2HU6nHUfecaN1Yn-pJzHXN7h_9Y1veXl6s8KAEyRQFwSkLPulE1ZLXePSfjs9_sD_cNE22Xd8naQX65GIuHaZwe50VmvjAm7O0pIjWOssUvM3Tb4ihMtHy2AiRpHe2bJIFGAg; __Secure-3PSIDTS=sidts-CjYBnJZzaiSFdtzDMtfCGjouLNTKPoxpD1Pbvx7shpNEb310c-cCmuD2TYq1dPMN1r2mKm1nB4AQAA; __Secure-3PSIDRTS=sidts-CjYBnJZzaiSFdtzDMtfCGjouLNTKPoxpD1Pbvx7shpNEb310c-cCmuD2TYq1dPMN1r2mKm1nB4AQAA; __Secure-3PSIDCC=APD_SKGLveCHuE65eeaFuBPvpxIaTSOAgSyWsGeKVPHfwny2oW4FSLffuIs9as3TtSpJ9SiwEftn^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: no-cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-fetch-storage-access: active^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  -H ^"x-browser-channel: stable^" ^
+  -H ^"x-browser-copyright: Copyright 2026 Google LLC. All Rights Reserved.^" ^
+  -H ^"x-browser-validation: rOajNjfwi3oE/fgT/UhGGlC+5dw=^" ^
+  -H ^"x-browser-year: 2026^" ^
+  -H ^"x-client-data: CKmdygEIlaHLAQiFoM0B^" ^
+  -H ^"x-sec-ch-ua-not-a-border: qwbqeqvwqsadfvsywxrcwyedgfqwxdwz^"curl --url ^"https://www.indiapost.gov.in/locate-postoffice?_rsc=wjD-iRFkN832Why5^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793609322^$j60^$l0^$h1272119553^" ^
+  -H ^"next-router-prefetch: 1^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"next-url: /calculate-postage^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"rsc: 1^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^"curl --url ^"https://www.indiapost.gov.in/mail^&Parcel/mailproducts/prohibited-items?_rsc=wjD-iRFkN832Why5^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793609322^$j60^$l0^$h1272119553^" ^
+  -H ^"next-router-prefetch: 1^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"next-url: /calculate-postage^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=letter^&weight=50^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"rsc: 1^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^"
+  
+  
+  curl --url ^"https://analytics.google.com/g/collect?v=2^&tid=G-X3HX4PKM2P^&gtm=45je6as1h1v9237509155za200zd9237509155xf1^&_p=1793608918802^&_gaz=1^&gcd=13l3l3l3l1l1^&npa=0^&dma=0^&ecid=1272119553^&_eu=AEAAAGQC^&ae=a^&cid=1111940270.1765801333^&ec_mode=a^&frm=0^&pscdl=noapi^&rcb=12^&sr=1920x1080^&uaa=x86^&uab=64^&uafvl=Not^%^253AA-Brand^%^3B8.0.0.0^%^7CChromium^%^3B156.0.8078.74^%^7CGoogle^%^2520Chrome^%^3B156.0.8078.74^&uam=^&uamb=0^&uap=Windows^&uapv=19.0.0^&uaw=0^&ul=en-in^&gaf=2^&_s=4^&tag_exp=115938465~115938468~118897920~118897930~120213116~120385422~120412527~120469145~120469153~121246026~121246034~123691370~123814944^&dp=^%^2Fcalculate-postage^&dl=https^%^3A^%^2F^%^2Fwww.indiapost.gov.in^%^2Fcalculate-postage^%^3Ftab^%^3Ddomestic^%^26fromPincode^%^3D110001^%^26fromCity^%^3DNEW^%^2BDELHI^%^26fromState^%^3DDelhi^%^26fromOfficeId^%^3D15660153^%^26toPincode^%^3D560087^%^26toCity^%^3DBENGALURU^%^2BURBAN^%^26toState^%^3DKarnataka^%^26toOfficeId^%^3D21660027^%^26product^%^3Dparcel^%^26weight^%^3D500^%^26length^%^3D14^%^26width^%^3D9^%^26height^%^3D1^%^26POD^%^3Dfalse^%^26ACK^%^3D0^%^26REG^%^3D0^%^26COD^%^3D0^&dr=https^%^3A^%^2F^%^2Fwww.indiapost.gov.in^%^2Fcalculate-postage^&sid=1793607952^&sct=66^&seg=1^&dt=Calculate^%^20Postage^%^20^%^7C^%^20India^%^20Post^&en=page_view^&_et=16783^&tfd=60366^" ^
+  -X ^"POST^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-length: 0^" ^
+  -b ^"__Secure-3PAPISID=jo2yqgXdPDW61fOc/A6ZMMrT5wi90tIAc5; __Secure-3PSID=g.a000DQl78Xyq7Q1r-xm3kq-Zg0AHcY23rnWmxuABT98Y98oFcEsYEJ0TiHk4vpwD-kIJlTHKpQACgYKAY4SARISFQHGX2Miwr1nQNyCHVFox5hUdwrVhRoVAUF8yKpK3-d-ydsF9xS4QmXs9Rem0076; NID=CtsDCAESjQMBM9Agl-dcFv8Qx35UmYiCTQec3PkjxQKV-iPQJSqn3yWcZYaIeAWpjnLIpF1tb4hWzFTDt5wrG9t4r09uIo93kOpk4ZO4vXU620tGKO2lX1Ysx_3FOnraFsyi72kWxo3cLSFeRA6ncsfycNhAXlJA0UuuvMIbvZHfBW2a_zu_2cOi7aN6q9NWYmXQV1opX5L8aZNU320Fm_ti-q5CCrrFL5VvAPsmBFoCtRZgsGvPTqve6iUJ5PO09VnPmjLjpvOaPmofpptlJt8Ne28d7YWjeokRHtUbsF5Oe955DM4QaAWRIvxHr4htIQL8GGFsgu1DCxN6c0nGDnzqef_dbvq8NQfjizeBnh-l5GHPm0F9pr7Ps9m8jbVs3DYwdH-t2sxj_bGzMy4l-7n2wTJ7Z-QWj6WoWfytBoBtRvHyP_IL3HkWGM7t00xmnxyfAa9rnJ95dnISNY9K65_X1atfly05Tdc6f_iKBPo1kMPoh5jFIUqZU2HU6nHUfecaN1Yn-pJzHXN7h_9Y1veXl6s8KAEyRQFwSkLPulE1ZLXePSfjs9_sD_cNE22Xd8naQX65GIuHaZwe50VmvjAm7O0pIjWOssUvM3Tb4ihMtHy2AiRpHe2bJIFGAg; __Secure-3PSIDTS=sidts-CjYBnJZzavpjGGT9Gn59G0yAsdR1IGL_t4bPOmbpegax_6ZPAgCa5D6HNpubjecLDQFR556ksu8QAA; __Secure-3PSIDRTS=sidts-CjYBnJZzavpjGGT9Gn59G0yAsdR1IGL_t4bPOmbpegax_6ZPAgCa5D6HNpubjecLDQFR556ksu8QAA; __Secure-3PSIDCC=APD_SKFFFPIOsHIgvPsRlL2DKcNAwAvJEt63xWNr_1d11VzOwfkdGCUwWKyxvYYG78VkzVnZkNyS^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: no-cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-fetch-storage-access: active^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  -H ^"x-browser-channel: stable^" ^
+  -H ^"x-browser-copyright: Copyright 2026 Google LLC. All Rights Reserved.^" ^
+  -H ^"x-browser-validation: rOajNjfwi3oE/fgT/UhGGlC+5dw=^" ^
+  -H ^"x-browser-year: 2026^" ^
+  -H ^"x-client-data: CKmdygEIlaHLAQiFoM0B^" ^
+  -H ^"x-sec-ch-ua-not-a-border: qvgqeavwqtadffsywgccwqddgfqwxewz^"
+  
+  
+  curl --url ^"https://www.indiapost.gov.in/locate-postoffice?_rsc=wjD-iRFkN832Why5^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608944^$j7^$l0^$h1272119553^" ^
+  -H ^"next-router-prefetch: 1^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"next-url: /calculate-postage^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"rsc: 1^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^"
+  
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608944^$j7^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f343082506e6858e043aa33c21f5343550f670f6f^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"BASE_URL_BACKEND_MASTER_DATA_MANAGEMENT^\^",^\^"GET^\^",null,^\^"/domestic-tariffs/parcels-revised?product-code=PARCEL^&length=14^&width=9^&height=1^&weight=500^&source-pincode=110001^&destination-pincode=560087^&source-office-id=15660153^&destination-office-id=21660027^\^"^]^"
+  
+  
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608944^$j7^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f343082506e6858e043aa33c21f5343550f670f6f^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"BASE_URL_BACKEND_MASTER_DATA_MANAGEMENT^\^",^\^"GET^\^",null,^\^"/domestic-tariffs/business-parcels-revised?product-code=BUSINESS_PARCEL^&length=14^&width=9^&height=1^&weight=500^&source-pincode=110001^&destination-pincode=560087^&source-office-id=15660153^&destination-office-id=21660027^\^"^]^"
+  
+  
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608944^$j7^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f343082506e6858e043aa33c21f5343550f670f6f^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"BASE_URL_BACKEND_MASTER_DATA_MANAGEMENT^\^",^\^"GET^\^",null,^\^"/domestic-tariffs/speed-post-parcel-revised?product-code=SP_INLAND_PARCEL^&height=1^&length=14^&width=9^&weight=500^&source-pincode=110001^&destination-pincode=560087^&source-office-id=15660153^&destination-office-id=21660027^\^"^]^"
+  
+  
+  curl --url ^"https://www.google.com/rmkt/collect/414438318/?random=1793608977240^&cv=11^&fst=1793608977240^&fmt=8^&bg=ffffff^&guid=ON^&async=1^&en=form_submit^&gtm=45be6as1v9253127158za200zd9253127158xecxf1^&gcd=13l3l3l3l1l1^&dma=0^&tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123620777~123691370~123785234~123814184^&u_w=1920^&u_h=1080^&url=https^%^3A^%^2F^%^2Fwww.indiapost.gov.in^%^2Fcalculate-postage^&rcb=15^&frm=0^&tiba=Calculate^%^20Postage^%^20^%^7C^%^20India^%^20Post^&ae=a^&hn=www.googleadservices.com^&npa=0^&pscdl=noapi^&auid=1503747890.1789552244^&uaa=x86^&uab=64^&uafvl=Not^%^253AA-Brand^%^3B8.0.0.0^%^7CChromium^%^3B156.0.8078.74^%^7CGoogle^%^2520Chrome^%^3B156.0.8078.74^&uamb=0^&uam=^&uap=Windows^&uapv=19.0.0^&uaw=0^&data=event^%^3Dform_submit^&gap.fsrc=2^&ept=68^&gcp=5^" ^
+  -X ^"POST^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"Referer: https://www.indiapost.gov.in/^" ^
+  -H ^"User-Agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^"
+  
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage?tab=domestic^&fromPincode=110001^&fromCity=NEW+DELHI^&fromState=Delhi^&fromOfficeId=15660153^&toPincode=560087^&toCity=BENGALURU+URBAN^&toState=Karnataka^&toOfficeId=21660027^&product=parcel^&weight=500^&length=14^&width=9^&height=1^&POD=false^&ACK=0^&REG=0^&COD=0^&_rsc=-tCoLWNFvHMtlb9L^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608944^$j7^$l0^$h1272119553^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"next-url: /calculate-postage^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage^" ^
+  -H ^"rsc: 1^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^"
+  
+  
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608944^$j7^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f04c72a185756a3940501a7996e6b83e2a72a488e^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"GET_PINCODE^\^",^\^"GET^\^",null,^\^"?pincode=110001^&limit=50^&office-type=post^\^"^]^"
+  
+  
+  curl --url ^"https://www.indiapost.gov.in/calculate-postage^" ^
+  -H ^"accept: text/x-component^" ^
+  -H ^"accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,mr-IN;q=0.6,mr;q=0.5^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"content-type: text/plain;charset=UTF-8^" ^
+  -b ^"_ga=GA1.1.1111940270.1765801333; cookieConsent=^{^%^22session^%^22:true^%^2C^%^22persistent^%^22:true^%^2C^%^22preference^%^22:true^}; sess_map=dwtxbzvwuuwwxzuvaybvaudtxawbrdyeeqcxuebxvqwuewayvqtdzbdwwdyrvysbcvadzqtqzvysqqzbaccfseeertcttbwtrqvwbufddbucyuyqrqabauvdvbeswfuvczustdxxcvdsawtwseyuwsrvyestfrsq; asdasdasda=U2FsdGVkX18UCcaPi7SHyOpJXNgzELdi8lmVk6yHZaY^%^3D; _gcl_au=1.1.1503747890.1789552244.-.-.1789552243.1551489088.1793607953.1793608918; _ga_X3HX4PKM2P=GS2.1.s1793607952^$o66^$g1^$t1793608944^$j7^$l0^$h1272119553^" ^
+  -H ^"next-action: 7f04c72a185756a3940501a7996e6b83e2a72a488e^" ^
+  -H ^"next-router-state-tree: ^%^5B^%^22^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(controller^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22^(home^)^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22calculate-postage^%^22^%^2C^%^7B^%^22children^%^22^%^3A^%^5B^%^22__PAGE__^%^22^%^2C^%^7B^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^5D^%^7D^%^2Cnull^%^2Cnull^%^2Ctrue^%^5D^" ^
+  -H ^"origin: https://www.indiapost.gov.in^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.indiapost.gov.in/calculate-postage^" ^
+  -H ^"sec-ch-ua: ^\^"Not:A-Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"156^\^", ^\^"Google Chrome^\^";v=^\^"156^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: same-origin^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/156.0.0.0 Safari/537.36^" ^
+  --data-raw ^"^[^\^"GET_PINCODE^\^",^\^"GET^\^",null,^\^"?pincode=560087^&limit=50^&office-type=post^\^"^]^"
