@@ -1,9 +1,11 @@
 import { ConsignmentItem } from '../types/consignment';
 import { ServiceType, computePostageForService, POSTAL_SERVICES, TariffVersion } from '../data/indiaPostTariffs';
 import { validatePinCode } from '../data/postalCircles';
+import ExcelJS from 'exceljs';
 
 export const CSV_TEMPLATE_HEADERS = [
   'article_type',
+  'service_type',
   'origin_pin',
   'dest_pin',
   'weight_g',
@@ -17,13 +19,12 @@ export const CSV_TEMPLATE_HEADERS = [
 ];
 
 export const SAMPLE_CSV_ROWS = [
-  ['parcel', '400703', '560087', '500', '14', '9', '1', '0', '0', 'ORD-501', 'Ananya Deshmukh'],
-  ['letter', '400703', '560087', '50', '15', '10', '1', '0', '0', 'LET-102', 'Venkatesh Rao'],
-  ['speed_post', '400703', '400001', '250', '20', '15', '4', '0', '0', 'SP-303', 'Mumbai Delivery'],
-  ['business_parcel', '400703', '380001', '3500', '30', '20', '10', '0', '0', 'BIZ-404', 'Gujarat Retail'],
-  ['printed_books', '400703', '700001', '1200', '25', '18', '5', '0', '0', 'BK-505', 'Kolkata Book Depot'],
-  ['registered_parcel', '400703', '600001', '1800', '24', '18', '8', '0', '0', 'REG-606', 'Chennai Law Firm'],
-  ['intl_ems', '400703', 'US', '650', '25', '20', '10', '0', '0', 'INT-707', 'David Miller (USA)'],
+  ['Parcel', 'India Post Parcel (Retail)', '400703', '560087', '500', '14', '9', '1', '0', '0', 'ORD-501', 'Ananya Deshmukh'],
+  ['Letter', 'Ordinary Letter', '400703', '560087', '50', '', '', '', '0', '0', 'LET-102', 'Venkatesh Rao'],
+  ['Letter', 'Speed Post Document', '400703', '400001', '250', '', '', '', '0', '0', 'SP-303', 'Mumbai Delivery'],
+  ['Parcel', 'India Post Parcel (Contractual)', '400703', '380001', '3500', '30', '20', '10', '0', '0', 'BIZ-404', 'Gujarat Retail'],
+  ['Parcel', 'Printed Books (Concessional)', '400703', '700001', '1200', '25', '18', '5', '0', '0', 'BK-505', 'Kolkata Book Depot'],
+  ['Parcel', 'India Post Parcel (Retail)', '400703', '600001', '1800', '24', '18', '8', '0', '0', 'REG-606', 'Chennai Law Firm'],
 ];
 
 export function generateTemplateCSV(): string {
@@ -32,6 +33,164 @@ export function generateTemplateCSV(): string {
     ...SAMPLE_CSV_ROWS.map((row) => row.map((val) => `"${val.replace(/"/g, '""')}"`).join(',')),
   ];
   return lines.join('\n');
+}
+
+export const DOMESTIC_LETTER_SERVICE_IDS: ServiceType[] = [
+  'speed_post',
+  'letter',
+  'letter_card',
+  'postcard',
+  'registered_letter',
+  'printed_books',
+  'book_packet',
+];
+
+export const DOMESTIC_PARCEL_SERVICE_IDS: ServiceType[] = [
+  'speed_post',
+  'registered_parcel',
+  'business_parcel',
+  'logistics_post',
+  'printed_books',
+  'book_packet',
+];
+
+function getBulkServiceName(serviceId: ServiceType, articleType: 'Letter' | 'Parcel'): string {
+  if (serviceId === 'speed_post') {
+    return articleType === 'Parcel' ? 'Speed Post Parcel' : 'Speed Post Document';
+  }
+  return POSTAL_SERVICES[serviceId].name;
+}
+
+export async function generateTemplateXLSX(): Promise<ArrayBuffer> {
+  const workbook = new ExcelJS.Workbook();
+  const templateSheet = workbook.addWorksheet('Bulk Template');
+  const instructionsSheet = workbook.addWorksheet('Instructions');
+  const serviceSheet = workbook.addWorksheet('Service Options');
+  const validationSheet = workbook.addWorksheet('Validation Lists');
+  validationSheet.state = 'veryHidden';
+
+  templateSheet.addRow(CSV_TEMPLATE_HEADERS);
+  SAMPLE_CSV_ROWS.forEach((row) => templateSheet.addRow(row));
+  templateSheet.views = [{ state: 'frozen', ySplit: 1 }];
+  templateSheet.autoFilter = { from: 'A1', to: `L${SAMPLE_CSV_ROWS.length + 1}` };
+  templateSheet.columns = CSV_TEMPLATE_HEADERS.map((header) => ({
+    header,
+    key: header,
+    width: Math.max(header.length + 2, 16),
+  }));
+
+  const fieldHelp: Record<string, string> = {
+    article_type: 'Choose Letter or Parcel. This selection controls the available service_type choices.',
+    service_type: 'Choose a service from the dropdown after selecting article_type. Do not enter internal service IDs.',
+    weight_g: 'Enter the article weight in grams. Use a positive number. Letters are up to 500 g; parcel services have their own limits.',
+    length_cm: 'Enter parcel length in centimetres. Leave blank for letters or services that do not require dimensions.',
+    width_cm: 'Enter parcel width in centimetres. Leave blank for letters or services that do not require dimensions.',
+    height_cm: 'Enter parcel height in centimetres. Leave blank for letters or services that do not require dimensions.',
+    origin_pin: 'Enter the six-digit origin India Post PIN code.',
+    dest_pin: 'Enter the six-digit destination PIN code for domestic consignments.',
+  };
+  Object.entries(fieldHelp).forEach(([header, note]) => {
+    const cell = templateSheet.getCell(1, CSV_TEMPLATE_HEADERS.indexOf(header) + 1);
+    cell.note = note;
+    cell.font = { bold: true, color: { argb: 'FFFFFFFF' } };
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFC4122F' } };
+    cell.alignment = { vertical: 'middle', wrapText: true };
+  });
+  templateSheet.getRow(1).height = 34;
+
+  const letterServices = DOMESTIC_LETTER_SERVICE_IDS.map((id) => getBulkServiceName(id, 'Letter'));
+  const parcelServices = DOMESTIC_PARCEL_SERVICE_IDS.map((id) => getBulkServiceName(id, 'Parcel'));
+  validationSheet.getColumn(1).values = ['Letter', ...letterServices];
+  validationSheet.getColumn(2).values = ['Parcel', ...parcelServices];
+  workbook.definedNames.add(`'Validation Lists'!$D$1:$D$2`, 'ArticleTypes');
+  validationSheet.getColumn(4).values = ['Letter', 'Parcel'];
+  workbook.definedNames.add(
+    `'Validation Lists'!$A$2:$A$${letterServices.length + 1}`,
+    'ServiceOptions_Letter'
+  );
+  workbook.definedNames.add(
+    `'Validation Lists'!$B$2:$B$${parcelServices.length + 1}`,
+    'ServiceOptions_Parcel'
+  );
+
+  for (let row = 2; row <= 501; row++) {
+    templateSheet.getCell(row, 1).dataValidation = {
+      type: 'list',
+      allowBlank: false,
+      formulae: ['=ArticleTypes'],
+      showErrorMessage: true,
+      errorTitle: 'Choose an article type',
+      error: 'Select Letter or Parcel from the dropdown.',
+    };
+    templateSheet.getCell(row, 2).dataValidation = {
+      type: 'list',
+      allowBlank: false,
+      formulae: [`=INDIRECT("ServiceOptions_"&$A${row})`],
+      showErrorMessage: true,
+      errorTitle: 'Choose a matching service',
+      error: 'Select a service that matches the selected article type.',
+    };
+    templateSheet.getCell(row, 5).dataValidation = {
+      type: 'decimal',
+      operator: 'between',
+      formulae: [1, 5000000],
+      allowBlank: false,
+      showErrorMessage: true,
+      errorTitle: 'Invalid weight',
+      error: 'Enter a positive weight in grams.',
+    };
+    for (const column of [6, 7, 8]) {
+      templateSheet.getCell(row, column).dataValidation = {
+        type: 'decimal',
+        operator: 'between',
+        formulae: [0.1, 1000],
+        allowBlank: true,
+        showErrorMessage: true,
+        errorTitle: 'Invalid dimension',
+        error: 'Enter a dimension from 0.1 to 1000 cm, or leave it blank when not required.',
+      };
+    }
+  }
+
+  instructionsSheet.addRows([
+    ['India Post Bulk Postage Template', 'Choose article_type first, then choose the filtered service_type dropdown.'],
+    ['article_type', 'Select Letter or Parcel.'],
+    ['service_type', 'Select a service from the dropdown. For Parcel, choose Speed Post Parcel to use the same speed_post rate as the Single Parcel Estimator.'],
+    ['weight_g', 'Required positive number in grams. Example: 500 means 500 grams.'],
+    ['length_cm / width_cm / height_cm', 'Parcel dimensions in centimetres. Enter all three for dimensional parcel services; leave blank for letters or non-dimensional services.'],
+    ['origin_pin / dest_pin', 'Use six-digit India Post PIN codes for domestic consignments.'],
+    ['Other fields', 'Use declared_value in rupees, cod_flag as 0 or 1, and add reference_id and recipient_name as needed.'],
+  ]);
+  instructionsSheet.columns = [{ width: 30 }, { width: 110 }];
+  instructionsSheet.getRow(1).font = { bold: true, size: 14 };
+  instructionsSheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFC4122F' } };
+  instructionsSheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
+  instructionsSheet.getColumn(2).alignment = { wrapText: true, vertical: 'top' };
+  instructionsSheet.eachRow((row) => {
+    row.height = 30;
+  });
+
+  serviceSheet.addRow(['Article Type', 'Available Service Type', 'Service ID']);
+  DOMESTIC_LETTER_SERVICE_IDS.forEach((id) => serviceSheet.addRow(['Letter', getBulkServiceName(id, 'Letter'), id]));
+  DOMESTIC_PARCEL_SERVICE_IDS.forEach((id) => serviceSheet.addRow(['Parcel', getBulkServiceName(id, 'Parcel'), id]));
+  serviceSheet.columns = [{ width: 16 }, { width: 40 }, { width: 24 }];
+  serviceSheet.getRow(1).font = { bold: true };
+  serviceSheet.views = [{ state: 'frozen', ySplit: 1 }];
+
+  const buffer = await workbook.xlsx.writeBuffer();
+  return new Uint8Array(buffer).slice().buffer;
+}
+
+export function downloadBinaryFile(content: ArrayBuffer, filename: string) {
+  const blob = new Blob([content], {
+    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
 }
 
 export function downloadFile(content: string, filename: string, mimeType: string = 'text/csv;charset=utf-8;') {
@@ -134,6 +293,11 @@ export function parseCSV(
     ['articletype', 'article', 'service', 'servicetype', 'product', 'type'],
     ['article', 'service', 'product']
   );
+  const serviceIdx = findColumn(
+    ['servicetype', 'service'],
+    ['service'],
+    ['article']
+  );
   
   // Origin PIN (From / Sender / Source)
   const origPinIdx = findColumn(
@@ -182,7 +346,7 @@ export function parseCSV(
 
   for (let i = 1; i < lines.length; i++) {
     const rawTokens = parseLine(lines[i]);
-    if (rawTokens.length === 0 || (rawTokens.length === 1 && !rawTokens[0])) continue;
+    if (rawTokens.length === 0 || rawTokens.every((token) => !token.trim())) continue;
 
     const rowNum = i + 1;
     const ref = refIdx >= 0 && rawTokens[refIdx] ? rawTokens[refIdx] : `ITEM-${1000 + i}`;
@@ -222,7 +386,11 @@ export function parseCSV(
     }
 
     // Article type mapping with broad alias recognition
-    const rawType = typeIdx >= 0 && rawTokens[typeIdx] ? rawTokens[typeIdx].toLowerCase().replace(/[^a-z0-9_]/g, '') : '';
+    const rawArticleType =
+      typeIdx >= 0 && rawTokens[typeIdx] ? rawTokens[typeIdx].toLowerCase().replace(/[^a-z0-9_]/g, '') : '';
+    const rawServiceType =
+      serviceIdx >= 0 && rawTokens[serviceIdx] ? rawTokens[serviceIdx].toLowerCase().replace(/[^a-z0-9_]/g, '') : '';
+    const rawType = rawServiceType || rawArticleType;
     let serviceType: ServiceType = destinationType === 'international' ? 'intl_ems' : 'speed_post';
 
     if (destinationType === 'international') {

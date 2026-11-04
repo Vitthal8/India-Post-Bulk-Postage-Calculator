@@ -6,3 +6,4 @@ coverage/
 *.log
 .env*
 !.env.example
+rates_cache_v3 - B1.json

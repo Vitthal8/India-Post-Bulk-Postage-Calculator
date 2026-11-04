@@ -30,12 +30,14 @@ import {
   fetchAllLiveServices,
   ScrapeAllServicesResponse,
   LiveTariffResponse,
+  CalculatorMode,
 } from '../services/indiaPostApi';
 
 interface SingleParcelEstimatorProps {
   originPin: string;
   setOriginPin: (pin: string) => void;
   onAddConsignmentToBatch: (item: ConsignmentItem) => void;
+  calculatorMode: CalculatorMode;
 }
 
 export type ArticleType = 'Letter' | 'Parcel';
@@ -44,6 +46,7 @@ export const SingleParcelEstimator: React.FC<SingleParcelEstimatorProps> = ({
   originPin,
   setOriginPin,
   onAddConsignmentToBatch,
+  calculatorMode,
 }) => {
   const [activeTab, setActiveTab] = useState<'domestic' | 'international'>('domestic');
   const [articleType, setArticleType] = useState<ArticleType>('Letter');
@@ -116,6 +119,7 @@ export const SingleParcelEstimator: React.FC<SingleParcelEstimatorProps> = ({
           widthCm: articleType === 'Parcel' ? widthCm : undefined,
           heightCm: articleType === 'Parcel' ? heightCm : undefined,
           forceRefresh,
+          mode: calculatorMode,
         });
         setLiveData(res);
       } catch {
@@ -124,7 +128,7 @@ export const SingleParcelEstimator: React.FC<SingleParcelEstimatorProps> = ({
         setIsFetchingLive(false);
       }
     },
-    [activeTab, originPin, destPin, weightGrams, articleType, lengthCm, widthCm, heightCm]
+    [activeTab, originPin, destPin, weightGrams, articleType, lengthCm, widthCm, heightCm, calculatorMode]
   );
 
   // Auto-scrape with debounce when inputs change

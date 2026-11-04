@@ -1,5 +1,6 @@
 import React from 'react';
-import { Mail, Sun, Moon, Printer, Download } from 'lucide-react';
+import { Mail, Sun, Moon, Printer, Download, Wifi, WifiOff } from 'lucide-react';
+import { CalculatorMode } from '../services/indiaPostApi';
 
 interface NavbarProps {
   activeTab: 'spreadsheet' | 'single' | 'tariffs' | 'circles';
@@ -10,6 +11,8 @@ interface NavbarProps {
   onPrintManifest: () => void;
   onExportCSV: () => void;
   onOpenInspector: () => void;
+  calculatorMode: CalculatorMode;
+  setCalculatorMode: (mode: CalculatorMode) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -21,6 +24,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onPrintManifest,
   onExportCSV,
   onOpenInspector,
+  calculatorMode,
+  setCalculatorMode,
 }) => {
   return (
     <header className="sticky top-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xs">
@@ -92,6 +97,34 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Zone 3: Actions */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            <div className="inline-flex items-center gap-1 rounded-md border border-slate-200 dark:border-slate-700 p-0.5">
+              <button
+                type="button"
+                onClick={() => setCalculatorMode('offline')}
+                className={`inline-flex items-center gap-1 px-2 py-1 text-[11px] font-semibold rounded ${
+                  calculatorMode === 'offline'
+                    ? 'bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-900'
+                    : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                }`}
+                title="Use rates_cache_v3.json and local tariff calculations without network requests"
+              >
+                <WifiOff className="w-3 h-3" />
+                <span className="hidden sm:inline">Offline</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setCalculatorMode('online')}
+                className={`inline-flex items-center gap-1 px-2 py-1 text-[11px] font-semibold rounded ${
+                  calculatorMode === 'online'
+                    ? 'bg-emerald-700 text-white'
+                    : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                }`}
+                title="Use cached rates first, then query the India Post portal"
+              >
+                <Wifi className="w-3 h-3" />
+                <span className="hidden sm:inline">Online</span>
+              </button>
+            </div>
             {/* Live Inspector Button */}
             <button
               type="button"

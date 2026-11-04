@@ -8,6 +8,8 @@
 import fs from 'fs';
 import path from 'path';
 
+export type CalculatorMode = 'online' | 'offline';
+
 export interface ScrapedPostOffice {
   officeId: string;
   officeName: string;
@@ -295,6 +297,44 @@ export function getCacheStats() {
   };
 }
 
+export function exportCacheSnapshot(): PersistentStore {
+  return {
+    rate_cache: store.rate_cache,
+    pin_cache: store.pin_cache,
+    pin_exception: store.pin_exception,
+    sync_history: store.sync_history,
+  };
+}
+
+export function importCacheSnapshot(input: unknown): ReturnType<typeof getCacheStats> {
+  if (!input || typeof input !== 'object') {
+    throw new Error('Cache file must contain a JSON object');
+  }
+
+  const candidate = input as Partial<PersistentStore>;
+  if (
+    !candidate.rate_cache ||
+    typeof candidate.rate_cache !== 'object' ||
+    Array.isArray(candidate.rate_cache) ||
+    !candidate.pin_cache ||
+    typeof candidate.pin_cache !== 'object' ||
+    Array.isArray(candidate.pin_cache) ||
+    !candidate.pin_exception ||
+    typeof candidate.pin_exception !== 'object' ||
+    Array.isArray(candidate.pin_exception) ||
+    !Array.isArray(candidate.sync_history)
+  ) {
+    throw new Error('Invalid cache file: expected rate_cache, pin_cache, pin_exception, and sync_history');
+  }
+
+  store.rate_cache = migrateLegacyRateCacheEntries(candidate.rate_cache as Record<string, RateCacheEntry>);
+  store.pin_cache = candidate.pin_cache as Record<string, PinCacheEntry>;
+  store.pin_exception = candidate.pin_exception as Record<string, PinExceptionEntry>;
+  store.sync_history = candidate.sync_history.slice(0, 10);
+  scheduleSaveStore();
+  return getCacheStats();
+}
+
 export function getSyncHistory(): BatchSyncSessionLog[] {
   return store.sync_history.slice(0, 10);
 }
@@ -485,7 +525,8 @@ async function retryCall<T>(fn: () => Promise<T>, retryOnce: boolean = true): Pr
  */
 export async function scrapePinCodeDetails(
   pincode: string,
-  forceRefresh: boolean = false
+  forceRefresh: boolean = false,
+  mode: CalculatorMode = 'online'
 ): Promise<{
   success: boolean;
   offices: ScrapedPostOffice[];
@@ -499,7 +540,7 @@ export async function scrapePinCodeDetails(
     return { success: false, offices: [], latencyMs: 0, source: 'error', error: 'Pincode must be 6 digits' };
   }
 
-  if (!forceRefresh) {
+  if (mode === 'offline' || !forceRefresh) {
     if (store.pin_exception[cleanPin]) {
       return {
         success: false,
@@ -529,6 +570,16 @@ export async function scrapePinCodeDetails(
         source: 'cache',
       };
     }
+  }
+
+  if (mode === 'offline') {
+    return {
+      success: false,
+      offices: [],
+      latencyMs: 0,
+      source: 'error',
+      error: 'Offline mode: no matching cached PIN was found',
+    };
   }
 
   await ensureSessionWarm();
@@ -748,6 +799,7 @@ export interface LiveTariffParams {
   destOfficeId?: string;
   forceRefresh?: boolean;
   retryOnce?: boolean;
+  mode?: CalculatorMode;
 }
 
 /**
@@ -758,6 +810,7 @@ export async function scrapeLiveTariff(params: LiveTariffParams): Promise<LiveTa
   const toPin = params.destPin.trim();
   const weight = Math.max(1, Math.round(params.weightGrams));
   const retryOnce = params.retryOnce !== false;
+  const mode = params.mode || 'online';
 
   // Determine whether Speed Post should call Doc or Parcel
   const isParcelMode =
@@ -779,7 +832,7 @@ export async function scrapeLiveTariff(params: LiveTariffParams): Promise<LiveTa
     ? makeLegacyExactParcelCacheKey(fromPin, toPin, weight, effectiveServiceKey, dimensions)
     : null;
 
-  if (!params.forceRefresh) {
+  if (mode === 'offline' || !params.forceRefresh) {
     const cached = store.rate_cache[cacheKey] || (legacyCacheKey ? store.rate_cache[legacyCacheKey] : undefined);
     if (cached) {
       if (!store.rate_cache[cacheKey] && legacyCacheKey) {
@@ -805,6 +858,20 @@ export async function scrapeLiveTariff(params: LiveTariffParams): Promise<LiveTa
         toCity: store.pin_cache[toPin]?.city,
       };
     }
+  }
+
+  if (mode === 'offline') {
+    return {
+      isLive: false,
+      source: 'offline_engine_fallback',
+      latencyMs: 0,
+      productCode: effectiveServiceKey.toUpperCase(),
+      serviceName: effectiveServiceKey,
+      basePostage: 0,
+      gstAmount: 0,
+      totalPostage: 0,
+      error: 'Offline mode: no matching cached rate was found',
+    };
   }
 
   // Validate PINs via GET_PINCODE first (also gives us officeId for parcels)
@@ -953,6 +1020,7 @@ export async function scrapeAllServicesForEstimator(params: {
   widthCm?: number;
   heightCm?: number;
   forceRefresh?: boolean;
+  mode?: CalculatorMode;
 }) {
   const startTime = Date.now();
   const fromPin = params.originPin.trim();
@@ -961,8 +1029,8 @@ export async function scrapeAllServicesForEstimator(params: {
 
   // First resolve both PIN codes in parallel
   const [originPinRes, destPinRes] = await Promise.all([
-    scrapePinCodeDetails(fromPin, params.forceRefresh),
-    scrapePinCodeDetails(toPin, params.forceRefresh),
+    scrapePinCodeDetails(fromPin, params.forceRefresh, params.mode),
+    scrapePinCodeDetails(toPin, params.forceRefresh, params.mode),
   ]);
 
   const srcOffice = originPinRes.meta?.officeId || originPinRes.offices[0]?.officeId || '24661902';
@@ -976,6 +1044,7 @@ export async function scrapeAllServicesForEstimator(params: {
         originPin: fromPin,
         destPin: toPin,
         forceRefresh: params.forceRefresh,
+        mode: params.mode,
       }),
       scrapeLiveTariff({
         product: 'letter_card',
@@ -983,6 +1052,7 @@ export async function scrapeAllServicesForEstimator(params: {
         originPin: fromPin,
         destPin: toPin,
         forceRefresh: params.forceRefresh,
+        mode: params.mode,
       }),
       scrapeLiveTariff({
         product: 'letter',
@@ -990,6 +1060,7 @@ export async function scrapeAllServicesForEstimator(params: {
         originPin: fromPin,
         destPin: toPin,
         forceRefresh: params.forceRefresh,
+        mode: params.mode,
       }),
       scrapeLiveTariff({
         product: 'postcard',
@@ -997,6 +1068,7 @@ export async function scrapeAllServicesForEstimator(params: {
         originPin: fromPin,
         destPin: toPin,
         forceRefresh: params.forceRefresh,
+        mode: params.mode,
       }),
     ]);
 
@@ -1034,6 +1106,7 @@ export async function scrapeAllServicesForEstimator(params: {
         sourceOfficeId: srcOffice,
         destOfficeId: dstOffice,
         forceRefresh: params.forceRefresh,
+        mode: params.mode,
       }),
       scrapeLiveTariff({
         product: 'business_parcel',
@@ -1046,6 +1119,7 @@ export async function scrapeAllServicesForEstimator(params: {
         sourceOfficeId: srcOffice,
         destOfficeId: dstOffice,
         forceRefresh: params.forceRefresh,
+        mode: params.mode,
       }),
       scrapeLiveTariff({
         product: 'registered_parcel',
@@ -1058,6 +1132,7 @@ export async function scrapeAllServicesForEstimator(params: {
         sourceOfficeId: srcOffice,
         destOfficeId: dstOffice,
         forceRefresh: params.forceRefresh,
+        mode: params.mode,
       }),
     ]);
 
@@ -1102,7 +1177,8 @@ export interface BatchScrapeItemRequest {
 
 export async function scrapeBatchTariffs(
   items: BatchScrapeItemRequest[],
-  sessionId?: string
+  sessionId?: string,
+  mode: CalculatorMode = 'online'
 ) {
   const chunkStart = Date.now();
   const results: Record<string, LiveTariffResult> = {};
@@ -1187,6 +1263,7 @@ export async function scrapeBatchTariffs(
           heightCm: item.heightCm,
           forceRefresh: item.forceRefresh,
           retryOnce: item.retryOnce,
+          mode,
         });
         results[item.id] = res;
 

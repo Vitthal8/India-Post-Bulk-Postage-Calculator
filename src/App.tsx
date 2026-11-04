@@ -16,26 +16,139 @@ import { SingleParcelEstimator } from './components/SingleParcelEstimator';
 import { TariffExplorer } from './components/TariffExplorer';
 import { PostalCirclesExplorer } from './components/PostalCirclesExplorer';
 import { LivePortalInspector } from './components/LivePortalInspector';
+import { SavedJobsPanel } from './components/SavedJobsPanel';
 
 import { ConsignmentItem, BatchSummary } from './types/consignment';
 import { ServiceType, computePostageForService, TariffVersion, POSTAL_SERVICES, POD_FEE_INCL_GST } from './data/indiaPostTariffs';
-import { SAMPLE_PRESETS } from './data/sampleBatches';
 import { exportConsignmentsToCSV, downloadFile } from './utils/csvHandler';
 import {
   fetchBatchLiveTariffs,
   LiveTariffResponse,
+  CalculatorMode,
 } from './services/indiaPostApi';
+import {
+  SavedJob,
+  SavedJobState,
+  createJobId,
+  readActiveJobId,
+  readSavedJobs,
+  writeActiveJobId,
+  writeSavedJobs,
+} from './utils/savedJobs';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'spreadsheet' | 'single' | 'tariffs' | 'circles'>('spreadsheet');
   const [isDark, setIsDark] = useState<boolean>(false);
   const [originPin, setOriginPin] = useState<string>('400703');
   const [tariffVersion, setTariffVersion] = useState<TariffVersion>('2025_revised');
-
-  // Load initial sample batch
-  const [items, setItems] = useState<ConsignmentItem[]>(() => {
-    return SAMPLE_PRESETS[0].generateItems();
+  const [calculatorMode, setCalculatorMode] = useState<CalculatorMode>(() => {
+    try {
+      return localStorage.getItem('india-post-calculator-mode') === 'online' ? 'online' : 'offline';
+    } catch {
+      return 'offline';
+    }
   });
+
+  useEffect(() => {
+    localStorage.setItem('india-post-calculator-mode', calculatorMode);
+  }, [calculatorMode]);
+
+  const [items, setItems] = useState<ConsignmentItem[]>([]);
+  const [savedJobs, setSavedJobs] = useState<SavedJob[]>([]);
+  const [activeJobId, setActiveJobId] = useState<string | null>(null);
+  const [savedSignature, setSavedSignature] = useState('');
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  const currentJobState = useMemo<SavedJobState>(
+    () => ({ items, originPin, activeTab, isDark, calculatorMode, tariffVersion }),
+    [items, originPin, activeTab, isDark, calculatorMode, tariffVersion]
+  );
+  const currentSignature = JSON.stringify(currentJobState);
+  const hasUnsavedChanges = isHydrated && currentSignature !== savedSignature;
+
+  useEffect(() => {
+    const jobs = readSavedJobs();
+    const activeId = readActiveJobId();
+    const activeJob = jobs.find((job) => job.id === activeId);
+    setSavedJobs(jobs);
+    if (activeJob) {
+      setItems(activeJob.state.items);
+      setOriginPin(activeJob.state.originPin);
+      setActiveTab(activeJob.state.activeTab);
+      setIsDark(activeJob.state.isDark);
+      setCalculatorMode(activeJob.state.calculatorMode);
+      setTariffVersion(activeJob.state.tariffVersion);
+      setActiveJobId(activeJob.id);
+      setSavedSignature(JSON.stringify(activeJob.state));
+    }
+    setIsHydrated(true);
+  }, []);
+
+  const handleSaveJob = (name: string) => {
+    const now = new Date().toISOString();
+    const activeJob = savedJobs.find((job) => job.id === activeJobId);
+    const id = activeJob && activeJob.name === name ? activeJob.id : createJobId();
+    const nextJob: SavedJob = { id, name, savedAt: now, state: currentJobState };
+    const nextJobs = [...savedJobs.filter((job) => job.id !== id), nextJob];
+    try {
+      writeSavedJobs(nextJobs);
+      writeActiveJobId(id);
+      setSavedJobs(nextJobs);
+      setActiveJobId(id);
+      setSavedSignature(currentSignature);
+    } catch {
+      window.alert('Unable to save this bulk job in browser storage. Your current work is still open; please export it before closing.');
+    }
+  };
+
+  const handleLoadJob = (job: SavedJob) => {
+    setItems(job.state.items);
+    setOriginPin(job.state.originPin);
+    setActiveTab(job.state.activeTab);
+    setIsDark(job.state.isDark);
+    setCalculatorMode(job.state.calculatorMode);
+    setTariffVersion(job.state.tariffVersion);
+    setActiveJobId(job.id);
+    setSavedSignature(JSON.stringify(job.state));
+    writeActiveJobId(job.id);
+  };
+
+  const handleNewJob = () => {
+    setItems([]);
+    setOriginPin('400703');
+    setActiveTab('spreadsheet');
+    setIsDark(false);
+    setCalculatorMode('offline');
+    setTariffVersion('2025_revised');
+    setActiveJobId(null);
+    setSavedSignature('');
+    writeActiveJobId(null);
+  };
+
+  const handleRenameJob = (jobId: string, name: string) => {
+    const nextJobs = savedJobs.map((job) => (job.id === jobId ? { ...job, name, savedAt: new Date().toISOString() } : job));
+    try {
+      writeSavedJobs(nextJobs);
+      setSavedJobs(nextJobs);
+    } catch {
+      window.alert('Unable to rename this saved job in browser storage.');
+    }
+  };
+
+  const handleDeleteJob = (jobId: string) => {
+    const nextJobs = savedJobs.filter((job) => job.id !== jobId);
+    try {
+      writeSavedJobs(nextJobs);
+      setSavedJobs(nextJobs);
+      if (activeJobId === jobId) {
+        setActiveJobId(null);
+        setSavedSignature('');
+        writeActiveJobId(null);
+      }
+    } catch {
+      window.alert('Unable to delete this saved job from browser storage.');
+    }
+  };
 
   // Live Scraping State (Defaults to Exact 18% Counter GST)
   const [isSyncingLive, setIsSyncingLive] = useState<boolean>(false);
@@ -188,7 +301,7 @@ export default function App() {
             retryOnce: true,
           }));
 
-          const { results } = await fetchBatchLiveTariffs(payload, sessionId);
+          const { results } = await fetchBatchLiveTariffs(payload, sessionId, calculatorMode);
 
           Object.values(results).forEach((r) => {
             completed += 1;
@@ -231,7 +344,7 @@ export default function App() {
 
       setIsSyncingLive(false);
     },
-    [originPin, applyLiveResultToItem]
+    [originPin, calculatorMode, applyLiveResultToItem]
   );
 
   // Auto-sync initial sample batch on first mount
@@ -551,10 +664,24 @@ export default function App() {
         onPrintManifest={() => setIsPrintManifestOpen(true)}
         onExportCSV={handleExportCSV}
         onOpenInspector={() => setIsInspectorOpen(true)}
+        calculatorMode={calculatorMode}
+        setCalculatorMode={setCalculatorMode}
       />
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-[1850px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex justify-end mb-3">
+          <SavedJobsPanel
+            jobs={savedJobs}
+            activeJobId={activeJobId}
+            hasUnsavedChanges={hasUnsavedChanges}
+            onNew={handleNewJob}
+            onSave={handleSaveJob}
+            onLoad={handleLoadJob}
+            onRename={handleRenameJob}
+            onDelete={handleDeleteJob}
+          />
+        </div>
         {activeTab === 'spreadsheet' && (
           <div>
             {/* Streamlined Origin PIN & Toolbar */}
@@ -575,6 +702,7 @@ export default function App() {
               }}
               allPodEnabled={allPodEnabled}
               onToggleAllPod={handleToggleAllPod}
+              calculatorMode={calculatorMode}
             />
 
             {/* High-Density Spreadsheet Table */}
@@ -603,6 +731,7 @@ export default function App() {
           <SingleParcelEstimator
             originPin={originPin}
             setOriginPin={setOriginPin}
+            calculatorMode={calculatorMode}
             onAddConsignmentToBatch={(item) => {
               setItems((prev) => [...prev, item]);
               setActiveTab('spreadsheet');

@@ -13,6 +13,8 @@ import {
   getSyncHistory,
   clearSyncHistory,
   updateScraperSession,
+  exportCacheSnapshot,
+  importCacheSnapshot,
   LiveTariffParams,
   BatchScrapeItemRequest,
 } from './server/indiaPostScraper';
@@ -21,11 +23,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const isProduction = process.env.NODE_ENV === 'production';
-const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3002;
 
 async function startServer() {
   const app = express();
-  app.use(express.json({ limit: '10mb' }));
+  app.use(express.json({ limit: '50mb' }));
 
   // API Route: Live PIN Code details & Office IDs lookup from indiapost.gov.in
   app.get('/api/indiapost/pincode', async (req, res) => {
@@ -71,7 +73,8 @@ async function startServer() {
     try {
       const items = (req.body?.items || []) as BatchScrapeItemRequest[];
       const sessionId = (req.body?.sessionId || undefined) as string | undefined;
-      const result = await scrapeBatchTariffs(items, sessionId);
+      const mode = req.body?.mode === 'offline' ? 'offline' : 'online';
+      const result = await scrapeBatchTariffs(items, sessionId, mode);
       return res.json(result);
     } catch (err: any) {
       return res.status(500).json({
@@ -94,6 +97,19 @@ async function startServer() {
   // API Route: Persistent V3 Cache Stats (rate_cache, pin_cache, pin_exception, syncHistory)
   app.get('/api/indiapost/cache-stats', (req, res) => {
     return res.json(getCacheStats());
+  });
+
+  app.get('/api/indiapost/cache-export', (req, res) => {
+    res.setHeader('Content-Disposition', 'attachment; filename="rates_cache_v3.json"');
+    return res.json(exportCacheSnapshot());
+  });
+
+  app.post('/api/indiapost/cache-import', (req, res) => {
+    try {
+      return res.json({ success: true, stats: importCacheSnapshot(req.body) });
+    } catch (err: any) {
+      return res.status(400).json({ success: false, error: err.message || 'Invalid cache file' });
+    }
   });
 
   // API Route: Clear Persistent Cache Table

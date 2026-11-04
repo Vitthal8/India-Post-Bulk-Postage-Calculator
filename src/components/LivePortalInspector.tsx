@@ -5,6 +5,8 @@ import {
   updateServerSession,
   fetchSyncHistory,
   clearServerSyncHistory,
+  downloadCacheExport,
+  importCacheSnapshot,
   PortalBenchmarkResponse,
   BatchSyncSessionLog,
 } from '../services/indiaPostApi';
@@ -20,6 +22,8 @@ import {
   AlertTriangle,
   ShieldAlert,
   Trash2,
+  Upload,
+  Download,
   ChevronDown,
   ChevronUp,
 } from 'lucide-react';
@@ -59,6 +63,9 @@ export const LivePortalInspector: React.FC<LivePortalInspectorProps> = ({
   const [pastedRsc, setPastedRsc] = useState('');
   const [parsedRscResult, setParsedRscResult] = useState<any>(null);
   const [parseError, setParseError] = useState<string | null>(null);
+  const [cacheStatus, setCacheStatus] = useState<string | null>(null);
+  const [isImportingCache, setIsImportingCache] = useState(false);
+  const cacheFileInputRef = React.useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setTestOriginPin(originPin);
@@ -92,6 +99,25 @@ export const LivePortalInspector: React.FC<LivePortalInspectorProps> = ({
     const list = await clearServerSyncHistory();
     setSyncHistory(list);
     setExpandedSessionId(null);
+  };
+
+  const handleCacheImport = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+
+    setIsImportingCache(true);
+    setCacheStatus(null);
+    try {
+      const snapshot = JSON.parse(await file.text());
+      const stats = await importCacheSnapshot(snapshot);
+      setBenchmark((previous) => (previous ? { ...previous, cacheStats: stats } : previous));
+      setCacheStatus(`Imported ${stats.rateCacheCount.toLocaleString()} rates and ${stats.pinCacheCount.toLocaleString()} PINs.`);
+    } catch (err: any) {
+      setCacheStatus(`Import failed: ${err.message || 'Invalid cache file'}`);
+    } finally {
+      setIsImportingCache(false);
+    }
   };
 
   const runLiveTest = async () => {
@@ -240,6 +266,49 @@ export const LivePortalInspector: React.FC<LivePortalInspectorProps> = ({
               <RefreshCw className={`w-3.5 h-3.5 ${isLoadingBenchmark ? 'animate-spin' : ''}`} />
               <span>Test Live Action</span>
             </button>
+          </div>
+
+          {/* Persistent Cache Import / Export */}
+          <div className="p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-100">
+                  rates_cache_v3.json
+                </h4>
+                <p className="text-xs text-slate-500 mt-1">
+                  Backup or restore the server cache used by Offline mode.
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <input
+                  ref={cacheFileInputRef}
+                  type="file"
+                  accept=".json,application/json"
+                  onChange={handleCacheImport}
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  onClick={() => cacheFileInputRef.current?.click()}
+                  disabled={isImportingCache}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 disabled:opacity-50 rounded transition-colors"
+                >
+                  <Upload className="w-3.5 h-3.5" />
+                  {isImportingCache ? 'Importing...' : 'Import JSON'}
+                </button>
+                <button
+                  type="button"
+                  onClick={downloadCacheExport}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#c4122f] hover:bg-[#a60f26] rounded transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  Export JSON
+                </button>
+              </div>
+            </div>
+            {cacheStatus && (
+              <p className="mt-2 text-xs text-slate-600 dark:text-slate-300">{cacheStatus}</p>
+            )}
           </div>
 
           {/* Sync History Log Pane (Last 10 Batch Scraping Sessions) */}

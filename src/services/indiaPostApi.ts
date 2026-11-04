@@ -2,6 +2,8 @@
  * Client Service for India Post V3 Web Scraping & Server Action Engine
  */
 
+export type CalculatorMode = 'online' | 'offline';
+
 export interface LiveOfficeInfo {
   officeId: string;
   officeName: string;
@@ -146,6 +148,7 @@ export async function fetchLiveTariff(params: {
   destOfficeId?: string;
   forceRefresh?: boolean;
   retryOnce?: boolean;
+  mode?: CalculatorMode;
 }): Promise<LiveTariffResponse> {
   try {
     const res = await fetch('/api/indiapost/calculate', {
@@ -178,6 +181,7 @@ export async function fetchAllLiveServices(params: {
   widthCm?: number;
   heightCm?: number;
   forceRefresh?: boolean;
+  mode?: CalculatorMode;
 }): Promise<ScrapeAllServicesResponse> {
   const res = await fetch('/api/indiapost/scrape-all', {
     method: 'POST',
@@ -201,7 +205,8 @@ export async function fetchBatchLiveTariffs(
     forceRefresh?: boolean;
     retryOnce?: boolean;
   }[],
-  sessionId?: string
+  sessionId?: string,
+  mode: CalculatorMode = 'online'
 ): Promise<{
   results: Record<string, LiveTariffResponse>;
   cacheStats?: CacheStatsResponse;
@@ -210,7 +215,7 @@ export async function fetchBatchLiveTariffs(
   const res = await fetch('/api/indiapost/scrape-batch', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ items, sessionId }),
+    body: JSON.stringify({ items, sessionId, mode }),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return await res.json();
@@ -246,6 +251,26 @@ export async function fetchCacheStats(): Promise<CacheStatsResponse> {
   } catch {
     return { rateCacheCount: 0, pinCacheCount: 0, pinExceptionCount: 0 };
   }
+}
+
+export function downloadCacheExport(): void {
+  const link = document.createElement('a');
+  link.href = '/api/indiapost/cache-export';
+  link.download = 'rates_cache_v3.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
+export async function importCacheSnapshot(snapshot: unknown): Promise<CacheStatsResponse> {
+  const res = await fetch('/api/indiapost/cache-import', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(snapshot),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+  return data.stats;
 }
 
 export async function clearServerCache(

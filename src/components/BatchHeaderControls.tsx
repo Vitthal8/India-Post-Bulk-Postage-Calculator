@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { validatePinCode } from '../data/postalCircles';
 import { POSTAL_SERVICES, ServiceType } from '../data/indiaPostTariffs';
+import { CalculatorMode } from '../services/indiaPostApi';
 
 interface BatchHeaderControlsProps {
   originPin: string;
@@ -36,6 +37,7 @@ interface BatchHeaderControlsProps {
   onStopSync: () => void;
   allPodEnabled: boolean;
   onToggleAllPod: (enabled: boolean) => void;
+  calculatorMode: CalculatorMode;
 }
 
 export const BatchHeaderControls: React.FC<BatchHeaderControlsProps> = ({
@@ -53,6 +55,7 @@ export const BatchHeaderControls: React.FC<BatchHeaderControlsProps> = ({
   onStopSync,
   allPodEnabled,
   onToggleAllPod,
+  calculatorMode,
 }) => {
   const [showBulkMenu, setShowBulkMenu] = useState(false);
 
@@ -116,10 +119,14 @@ export const BatchHeaderControls: React.FC<BatchHeaderControlsProps> = ({
               onClick={() => onSyncAllLive(false)}
               disabled={itemCount === 0}
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold text-white bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 rounded-md transition-colors shadow-xs"
-              title="Fetch live rates from indiapost.gov.in for all rows"
+              title={
+                calculatorMode === 'offline'
+                  ? 'Use rates_cache_v3.json and local tariff calculations without network requests'
+                  : 'Fetch cached or live rates from indiapost.gov.in for all rows'
+              }
             >
               <RefreshCw className="w-3.5 h-3.5" />
-              <span>Sync Live</span>
+              <span>{calculatorMode === 'offline' ? 'Use Offline Rates' : 'Sync Online'}</span>
             </button>
           ) : (
             <button

@@ -6,7 +6,7 @@ India Post Bulk Postage Calculator is a React and Express application for estima
 
 - Node.js 20 or newer
 - npm 10 or newer, or [Bun](https://bun.sh/)
-- Internet access for live India Post portal lookups
+- Internet access is only required for Online mode and live India Post portal lookups
 
 ## Install
 
@@ -62,6 +62,27 @@ PORT=3002 bun run dev
 
 Open [http://localhost:3002](http://localhost:3002) in a browser. The server listens on all interfaces, so `http://127.0.0.1:3002` also works.
 
+### Open from other computers on the local network
+
+The server is bound to `0.0.0.0`, so other computers on the same LAN can use
+the host computer's LAN address:
+
+```text
+http://192.168.1.112:3002
+```
+
+The address may differ on another network. Find it with:
+
+```powershell
+Get-NetIPAddress -AddressFamily IPv4
+```
+
+If Windows Firewall blocks access, run PowerShell as Administrator once:
+
+```powershell
+New-NetFirewallRule -DisplayName "India Post Calculator 3002" -Direction Inbound -Protocol TCP -LocalPort 3002 -Action Allow -Profile Private
+```
+
 To confirm that the backend is running, open:
 
 ```text
@@ -108,8 +129,22 @@ The production server serves the generated `dist` directory and keeps the same A
 - `POST /api/indiapost/scrape-all` - fetch all supported services for one shipment
 - `POST /api/indiapost/scrape-batch` - process multiple shipment rows
 - `GET /api/indiapost/cache-stats` - inspect local cache counts
+- `GET /api/indiapost/cache-export` - download the complete `rates_cache_v3.json`
+- `POST /api/indiapost/cache-import` - validate and replace the server cache from JSON
 
-The live lookup features depend on the India Post portal. If the portal is unavailable or blocks a request, the application reports the source and uses its offline or cached calculation path where available.
+The calculator has a shared **Offline / Online** mode switch in the top navigation.
+It defaults to Offline and applies to both the bulk spreadsheet and the single
+parcel estimator:
+
+- **Offline** never contacts the India Post portal. It uses matching entries
+  from `rates_cache_v3.json` and falls back to the built-in local tariff engine
+  when a cached rate is unavailable.
+- **Online** uses the cache first and then may query the India Post portal for
+  missing or refreshed rates.
+
+The live lookup features depend on the India Post portal. If the portal is
+unavailable or blocks a request, the application reports the source and uses
+its offline or cached calculation path where available.
 
 ### Local cache behavior
 
@@ -120,6 +155,10 @@ also include canonical parcel dimensions in the key to prevent a differently
 shaped parcel from receiving the wrong cached tariff. Cached entries remain
 valid until a request explicitly sets `forceRefresh`; legacy exact parcel keys
 are read and migrated to the normalized key on first use.
+
+The Live Portal Inspector includes **Import JSON** and **Export JSON** controls
+for backing up or restoring this cache. Imported files must contain the
+`rate_cache`, `pin_cache`, `pin_exception`, and `sync_history` sections.
 
 ## Troubleshooting
 

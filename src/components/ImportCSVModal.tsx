@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import * as XLSX from 'xlsx';
 import { X, Upload, FileSpreadsheet, AlertCircle, CheckCircle, Download } from 'lucide-react';
-import { parseCSV, generateTemplateCSV, downloadFile } from '../utils/csvHandler';
+import { parseCSV, generateTemplateXLSX, downloadBinaryFile } from '../utils/csvHandler';
 import { ConsignmentItem } from '../types/consignment';
 import { ServiceType, computePostageForService } from '../data/indiaPostTariffs';
 
@@ -50,7 +50,15 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
 
         const generated: ConsignmentItem[] = [];
         rows.forEach((r, idx) => {
-          const fromVal = String(r['From'] || r['from'] || r['Origin'] || r['From Pincode'] || originPin)
+          const fromVal = String(
+            r['From'] ||
+              r['from'] ||
+              r['Origin'] ||
+              r['origin_pin'] ||
+              r['Origin Pin'] ||
+              r['From Pincode'] ||
+              originPin
+          )
             .replace(/\.0$/, '')
             .replace(/\D/g, '')
             .slice(0, 6);
@@ -68,7 +76,15 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
             .replace(/\D/g, '')
             .slice(0, 6);
           const weightVal = parseInt(
-            String(r['Weight'] || r['weight'] || r['Weight (g)'] || r['Weight(g)'] || r['weight_grams'] || '50').replace(
+            String(
+              r['Weight'] ||
+                r['weight'] ||
+                r['Weight (g)'] ||
+                r['Weight(g)'] ||
+                r['weight_grams'] ||
+                r['weight_g'] ||
+                '50'
+            ).replace(
               /\.0$/,
               ''
             ),
@@ -77,9 +93,21 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
 
           if (!toVal) return;
 
-          const refVal = String(r['Barcode'] || r['Ref ID'] || r['Reference'] || r['reference_id'] || `ROW-${idx + 1}`).trim();
-          const nameVal = String(r['Consignee'] || r['Name'] || r['City'] || r['recipient_name'] || `PIN ${toVal}`).trim();
-          const serviceRaw = String(r['Service'] || r['service'] || r['article_type'] || 'speed_post').toLowerCase();
+          const refVal = String(
+            r['Barcode'] || r['Ref ID'] || r['Reference'] || r['reference_id'] || `ROW-${idx + 1}`
+          ).trim();
+          const nameVal = String(
+            r['Consignee'] || r['Name'] || r['City'] || r['recipient_name'] || `PIN ${toVal}`
+          ).trim();
+          const articleRaw = String(r['Article Type'] || r['article_type'] || '').toLowerCase();
+          const serviceRaw = String(
+            r['Service Type'] ||
+              r['service_type'] ||
+              r['Service'] ||
+              r['service'] ||
+              r['article_type'] ||
+              (articleRaw.includes('letter') ? 'speed_post' : 'speed_post')
+          ).toLowerCase();
 
           let srv: ServiceType = 'speed_post';
           if (serviceRaw.includes('letter card') || serviceRaw.includes('letter_card')) srv = 'letter_card';
@@ -90,7 +118,19 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
             srv = 'registered_parcel';
 
           const cleanWeight = !isNaN(weightVal) && weightVal > 0 ? weightVal : 50;
-          const calc = computePostageForService(srv, cleanWeight, fromVal || originPin, toVal, 'IN');
+          const length = Number(r['Length'] || r['length_cm'] || '') || undefined;
+          const width = Number(r['Width'] || r['width_cm'] || '') || undefined;
+          const height = Number(r['Height'] || r['height_cm'] || '') || undefined;
+          const calc = computePostageForService(
+            srv,
+            cleanWeight,
+            fromVal || originPin,
+            toVal,
+            'IN',
+            length,
+            width,
+            height
+          );
 
           const item: ConsignmentItem & { customOriginPin?: string } = {
             id: `xl-${Date.now()}-${idx}`,
@@ -101,6 +141,9 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
             destinationCountry: 'IN',
             serviceType: srv,
             weightGrams: cleanWeight,
+            lengthCm: length,
+            widthCm: width,
+            heightCm: height,
             hasAck: false,
             calculation: calc,
             customOriginPin: fromVal || originPin,
@@ -213,7 +256,7 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
               {fileName ? fileName : 'Drag & drop your CSV or Excel (.xlsx/.xls) file here, or click to browse'}
             </div>
             <p className="text-[11px] text-slate-500 mt-1">
-              Supports standard CSV or Excel sheets with From, To / Pincode, and Weight columns
+              Supports CSV or Excel files with Article Type, Service Type, From, To / Pincode, and Weight columns
             </p>
           </div>
 
@@ -236,17 +279,17 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
 
           {/* Template helper */}
           <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 text-xs">
-            <span className="text-slate-500">Need the standard spreadsheet format?</span>
+            <span className="text-slate-500">Need the standard Excel format?</span>
             <button
               type="button"
-              onClick={() => {
-                const template = generateTemplateCSV();
-                downloadFile(template, 'india_post_bulk_template.csv');
+              onClick={async () => {
+                const template = await generateTemplateXLSX();
+                downloadBinaryFile(template, 'india_post_bulk_template.xlsx');
               }}
               className="inline-flex items-center gap-1 font-semibold text-[#c4122f] dark:text-red-400 hover:underline"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Download Template CSV</span>
+              <span>Download Excel Template</span>
             </button>
           </div>
         </div>
