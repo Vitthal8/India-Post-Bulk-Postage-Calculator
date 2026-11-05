@@ -678060,6 +678060,285 @@
       "baseTariff": 125,
       "gstAmount": 22,
       "fetchedAt": "2026-11-04T11:40:53.320Z"
+    },
+    "400703|201318|51-250|speed_post": {
+      "fromPin": "400703",
+      "toPin": "201318",
+      "weightSlab": "51-250",
+      "service": "Speed Post",
+      "price": 84,
+      "baseTariff": 72,
+      "gstAmount": 12,
+      "distanceKm": 1145,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T08:35:07.991Z"
+    },
+    "400703|400025|1001-1500|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "400025",
+      "weightSlab": "1001-1500",
+      "service": "Speed Post Parcel",
+      "price": 70,
+      "baseTariff": 60,
+      "gstAmount": 10,
+      "distanceKm": 0,
+      "isLocal": true,
+      "fetchedAt": "2026-11-05T11:56:16.243Z"
+    },
+    "400703|212657|1-50|speed_post": {
+      "fromPin": "400703",
+      "toPin": "212657",
+      "weightSlab": "1-50",
+      "service": "Speed Post",
+      "price": 55,
+      "baseTariff": 47,
+      "gstAmount": 8,
+      "distanceKm": 1094,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T08:35:09.221Z"
+    },
+    "400703|201102|1-50|speed_post": {
+      "fromPin": "400703",
+      "toPin": "201102",
+      "weightSlab": "1-50",
+      "service": "Speed Post",
+      "price": 55,
+      "baseTariff": 47,
+      "gstAmount": 8,
+      "distanceKm": 1157,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T08:35:09.402Z"
+    },
+    "400703|210204|1-50|speed_post": {
+      "fromPin": "400703",
+      "toPin": "210204",
+      "weightSlab": "1-50",
+      "service": "Speed Post",
+      "price": 55,
+      "baseTariff": 47,
+      "gstAmount": 8,
+      "distanceKm": 1057,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T08:35:11.117Z"
+    },
+    "400703|411048|1001-1500|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "411048",
+      "weightSlab": "1001-1500",
+      "service": "Speed Post Parcel",
+      "price": 154,
+      "baseTariff": 130,
+      "gstAmount": 24,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T08:41:20.653Z"
+    },
+    "400703|411048|1001-1500|registered_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "411048",
+      "weightSlab": "1001-1500",
+      "service": "India Post Parcel (Retail)",
+      "price": 139,
+      "baseTariff": 117,
+      "gstAmount": 22,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T08:41:20.668Z"
+    },
+    "400703|411048|1001-1500|business_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "411048",
+      "weightSlab": "1001-1500",
+      "service": "India Post Parcel (Contractual)",
+      "price": 68,
+      "baseTariff": 58,
+      "gstAmount": 10,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T08:41:20.703Z"
+    },
+    "400703|400025|1001-1500|registered_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "400025",
+      "weightSlab": "1001-1500",
+      "service": "India Post Parcel (Retail)",
+      "price": 70,
+      "baseTariff": 60,
+      "gstAmount": 10,
+      "isLocal": true,
+      "fetchedAt": "2026-11-05T08:41:37.368Z"
+    },
+    "400703|400025|1001-1500|business_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "400025",
+      "weightSlab": "1001-1500",
+      "service": "India Post Parcel (Contractual)",
+      "price": 42,
+      "baseTariff": 36,
+      "gstAmount": 6,
+      "isLocal": true,
+      "fetchedAt": "2026-11-05T08:41:37.389Z"
+    },
+    "400703|124404|2501-3000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "124404",
+      "weightSlab": "2501-3000",
+      "service": "Speed Post Parcel",
+      "price": 532,
+      "baseTariff": 450,
+      "gstAmount": 82,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T10:11:07.473Z"
+    },
+    "400703|754027|2501-3000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "754027",
+      "weightSlab": "2501-3000",
+      "service": "Speed Post Parcel",
+      "price": 532,
+      "baseTariff": 450,
+      "gstAmount": 82,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T10:11:50.562Z"
+    },
+    "400703|801305|2501-3000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "801305",
+      "weightSlab": "2501-3000",
+      "service": "Speed Post Parcel",
+      "price": 532,
+      "baseTariff": 450,
+      "gstAmount": 82,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T10:11:47.494Z"
+    },
+    "400703|532408|2501-3000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "532408",
+      "weightSlab": "2501-3000",
+      "service": "Speed Post Parcel",
+      "price": 532,
+      "baseTariff": 450,
+      "gstAmount": 82,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T10:11:07.529Z"
+    },
+    "400703|485772|2501-3000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "485772",
+      "weightSlab": "2501-3000",
+      "service": "Speed Post Parcel",
+      "price": 419,
+      "baseTariff": 355,
+      "gstAmount": 64,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T10:11:07.682Z"
+    },
+    "400703|829202|2501-3000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "829202",
+      "weightSlab": "2501-3000",
+      "service": "Speed Post Parcel",
+      "price": 532,
+      "baseTariff": 450,
+      "gstAmount": 82,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T10:11:07.683Z"
+    },
+    "400703|493196|2501-3000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "493196",
+      "weightSlab": "2501-3000",
+      "service": "Speed Post Parcel",
+      "price": 532,
+      "baseTariff": 450,
+      "gstAmount": 82,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T10:11:07.853Z"
+    },
+    "400703|360510|2501-3000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "360510",
+      "weightSlab": "2501-3000",
+      "service": "Speed Post Parcel",
+      "price": 419,
+      "baseTariff": 355,
+      "gstAmount": 64,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T10:11:07.839Z"
+    },
+    "400703|500007|501-1000|speed_post_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "500007",
+      "weightSlab": "501-1000",
+      "service": "Speed Post Parcel",
+      "price": 169,
+      "baseTariff": 143,
+      "gstAmount": 26,
+      "distanceKm": 0,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T11:57:08.141Z"
+    },
+    "400703|110024|7001-7500|business_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "110024",
+      "weightSlab": "7001-7500",
+      "service": "India Post Parcel (Contractual)",
+      "price": 349,
+      "baseTariff": 295,
+      "gstAmount": 54,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T12:09:21.756Z"
+    },
+    "400703|560087|10501-11000|business_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "560087",
+      "weightSlab": "10501-11000",
+      "service": "India Post Parcel (Contractual)",
+      "price": 455,
+      "baseTariff": 385,
+      "gstAmount": 70,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T12:15:01.781Z"
+    },
+    "400703|400001|5501-6000|business_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "400001",
+      "weightSlab": "5501-6000",
+      "service": "India Post Parcel (Contractual)",
+      "price": 114,
+      "baseTariff": 96,
+      "gstAmount": 18,
+      "isLocal": true,
+      "fetchedAt": "2026-11-05T12:15:01.769Z"
+    },
+    "400703|110024|5501-6000|business_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "110024",
+      "weightSlab": "5501-6000",
+      "service": "India Post Parcel (Contractual)",
+      "price": 277,
+      "baseTariff": 235,
+      "gstAmount": 42,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T12:15:34.345Z"
+    },
+    "400703|110024|10501-11000|business_parcel|14.00x9.00x1.00": {
+      "fromPin": "400703",
+      "toPin": "110024",
+      "weightSlab": "10501-11000",
+      "service": "India Post Parcel (Contractual)",
+      "price": 455,
+      "baseTariff": 385,
+      "gstAmount": 70,
+      "isLocal": false,
+      "fetchedAt": "2026-11-05T12:15:34.361Z"
     }
   },
   "pin_cache": {
@@ -678253,7 +678532,7 @@
       "state": "Delhi",
       "office": "Lajpat Nagar DC",
       "officeId": "15840045",
-      "checkedAt": "2026-11-03T09:42:18.830Z"
+      "checkedAt": "2026-11-05T12:09:21.329Z"
     },
     "110025": {
       "pin": "110025",
@@ -690895,6 +691174,14 @@
       "officeId": "31661949",
       "checkedAt": "2026-11-03T09:46:53.827Z"
     },
+    "201102": {
+      "pin": "201102",
+      "city": "GHAZIABAD",
+      "state": "Uttar Pradesh",
+      "office": "Badshahpur Siroli BO",
+      "officeId": "31112887",
+      "checkedAt": "2026-11-05T08:35:09.147Z"
+    },
     "201301": {
       "pin": "201301",
       "city": "GAUTAM BUDDHA NAGAR",
@@ -690910,6 +691197,14 @@
       "office": "Ghori BO",
       "officeId": "31100037",
       "checkedAt": "2026-11-03T09:46:53.849Z"
+    },
+    "201318": {
+      "pin": "201318",
+      "city": "GAUTAM BUDDHA NAGAR",
+      "state": "Uttar Pradesh",
+      "office": "Sec 01 Greater Noida SO",
+      "officeId": "31660019",
+      "checkedAt": "2026-11-05T08:35:07.798Z"
     },
     "204101": {
       "pin": "204101",
@@ -690951,6 +691246,14 @@
       "officeId": "31110888",
       "checkedAt": "2026-11-03T09:46:54.788Z"
     },
+    "210204": {
+      "pin": "210204",
+      "city": "CHITRAKOOT",
+      "state": "Uttar Pradesh",
+      "office": "Bhaisaundha BO",
+      "officeId": "31110441",
+      "checkedAt": "2026-11-05T08:35:10.914Z"
+    },
     "210301": {
       "pin": "210301",
       "city": "HAMIRPUR",
@@ -690974,6 +691277,14 @@
       "office": "Ayodhya BO",
       "officeId": "31102655",
       "checkedAt": "2026-11-03T09:46:55.425Z"
+    },
+    "212657": {
+      "pin": "212657",
+      "city": "FATEHPUR",
+      "state": "Uttar Pradesh",
+      "office": "Bakewar Sarai BO",
+      "officeId": "31111127",
+      "checkedAt": "2026-11-05T08:35:09.006Z"
     },
     "221103": {
       "pin": "221103",
@@ -719381,7 +719692,7 @@
       "state": "Maharashtra",
       "office": "New Prabhadevi Road S.O",
       "officeId": "24660626",
-      "checkedAt": "2026-11-03T09:56:23.911Z"
+      "checkedAt": "2026-11-05T11:56:15.784Z"
     },
     "400026": {
       "pin": "400026",
@@ -720021,7 +720332,7 @@
       "state": "Maharashtra",
       "office": "Vashi S.O Thane",
       "officeId": "24661931",
-      "checkedAt": "2026-11-04T11:43:11.882Z"
+      "checkedAt": "2026-11-05T12:09:21.578Z"
     },
     "400704": {
       "pin": "400704",
@@ -741069,7 +741380,7 @@
       "state": "Telangana",
       "office": "Jama I Osmania S.O",
       "officeId": "30660667",
-      "checkedAt": "2026-11-03T10:11:04.237Z"
+      "checkedAt": "2026-11-05T11:57:07.927Z"
     },
     "500008": {
       "pin": "500008",
@@ -749311,6 +749622,14 @@
       "officeId": "11360038",
       "checkedAt": "2026-11-03T10:13:45.454Z"
     },
+    "520003": {
+      "pin": "520003",
+      "city": "VIJAYAWADA",
+      "state": "Andhra Pradesh",
+      "office": "A.C.Company S.O",
+      "officeId": "11660992",
+      "checkedAt": "2026-11-05T08:36:36.358Z"
+    },
     "520004": {
       "pin": "520004",
       "city": "KRISHNA",
@@ -753846,6 +754165,14 @@
       "office": "IDC Kakinada",
       "officeId": "11840010",
       "checkedAt": "2026-11-03T10:15:23.900Z"
+    },
+    "533002": {
+      "pin": "533002",
+      "city": "EAST GODAVARI",
+      "state": "Andhra Pradesh",
+      "office": "Jagannaickpur S.O",
+      "officeId": "11661220",
+      "checkedAt": "2026-11-05T08:36:38.018Z"
     },
     "533005": {
       "pin": "533005",
@@ -805165,7 +805492,7 @@
       "state": "Odisha",
       "office": "Chasapara S.O",
       "officeId": "26660425",
-      "checkedAt": "2026-11-03T10:33:32.871Z"
+      "checkedAt": "2026-11-05T10:11:50.356Z"
     },
     "754028": {
       "pin": "754028",
@@ -819101,7 +819428,7 @@
       "state": "Bihar",
       "office": "Akair BO",
       "officeId": "13107626",
-      "checkedAt": "2026-11-03T10:38:19.440Z"
+      "checkedAt": "2026-11-05T10:11:47.339Z"
     },
     "801306": {
       "pin": "801306",
@@ -828790,6 +829117,11 @@
       "reason": "Pincode not found",
       "checkedAt": "2026-11-03T09:42:49.823Z"
     },
+    "144004": {
+      "pin": "144004",
+      "reason": "Pincode not found",
+      "checkedAt": "2026-11-05T08:36:33.832Z"
+    },
     "144406": {
       "pin": "144406",
       "reason": "Pincode not found",
@@ -828825,6 +829157,11 @@
       "reason": "Pincode not found",
       "checkedAt": "2026-11-03T09:51:31.538Z"
     },
+    "360577": {
+      "pin": "360577",
+      "reason": "Pincode not found",
+      "checkedAt": "2026-11-05T08:36:34.684Z"
+    },
     "382630": {
       "pin": "382630",
       "reason": "Pincode not found",
@@ -828835,10 +829172,20 @@
       "reason": "Pincode not found",
       "checkedAt": "2026-11-03T09:55:35.902Z"
     },
+    "394220": {
+      "pin": "394220",
+      "reason": "Pincode not found",
+      "checkedAt": "2026-11-05T08:35:09.832Z"
+    },
     "394421": {
       "pin": "394421",
       "reason": "Pincode not found",
       "checkedAt": "2026-11-03T09:55:58.538Z"
+    },
+    "400611": {
+      "pin": "400611",
+      "reason": "Pincode not found",
+      "checkedAt": "2026-11-05T08:36:32.581Z"
     },
     "401608": {
       "pin": "401608",
@@ -828849,6 +829196,11 @@
       "pin": "410204",
       "reason": "Pincode not found",
       "checkedAt": "2026-11-03T09:56:59.445Z"
+    },
+    "416000": {
+      "pin": "416000",
+      "reason": "Pincode not found",
+      "checkedAt": "2026-11-05T08:35:08.478Z"
     },
     "425424": {
       "pin": "425424",
@@ -828874,6 +829226,11 @@
       "pin": "563116",
       "reason": "Pincode not found",
       "checkedAt": "2026-11-03T10:16:48.023Z"
+    },
+    "576123": {
+      "pin": "576123",
+      "reason": "Pincode not found",
+      "checkedAt": "2026-11-05T08:35:46.357Z"
     },
     "590009": {
       "pin": "590009",
@@ -828963,29 +829320,14 @@
   },
   "sync_history": [
     {
-      "sessionId": "SYNC-1793795322093-EYWP",
-      "startedAt": "2026-11-04T12:28:42.093Z",
-      "completedAt": "2026-11-04T12:28:42.352Z",
-      "durationMs": 1,
-      "originPin": "400703",
-      "totalItems": 24,
-      "liveCount": 0,
-      "cachedCount": 24,
-      "pinExceptionCount": 0,
-      "blockedCount": 0,
-      "successRate": 100,
-      "status": "healthy",
-      "blockedRequests": []
-    },
-    {
-      "sessionId": "SYNC-1793795315124-4O7Q",
-      "startedAt": "2026-11-04T12:28:35.122Z",
-      "completedAt": "2026-11-04T12:28:35.304Z",
+      "sessionId": "SYNC-1793880944300-ICDP",
+      "startedAt": "2026-11-05T12:15:44.304Z",
+      "completedAt": "2026-11-05T12:15:44.304Z",
       "durationMs": 0,
       "originPin": "400703",
-      "totalItems": 24,
+      "totalItems": 3,
       "liveCount": 0,
-      "cachedCount": 24,
+      "cachedCount": 3,
       "pinExceptionCount": 0,
       "blockedCount": 0,
       "successRate": 100,
@@ -828993,14 +829335,14 @@
       "blockedRequests": []
     },
     {
-      "sessionId": "SYNC-1793795305272-IKSY",
-      "startedAt": "2026-11-04T12:28:25.269Z",
-      "completedAt": "2026-11-04T12:28:25.357Z",
-      "durationMs": 1,
+      "sessionId": "SYNC-1793880934163-1JKX",
+      "startedAt": "2026-11-05T12:15:34.167Z",
+      "completedAt": "2026-11-05T12:15:34.361Z",
+      "durationMs": 194,
       "originPin": "400703",
-      "totalItems": 24,
-      "liveCount": 0,
-      "cachedCount": 24,
+      "totalItems": 3,
+      "liveCount": 3,
+      "cachedCount": 0,
       "pinExceptionCount": 0,
       "blockedCount": 0,
       "successRate": 100,
@@ -829008,14 +829350,29 @@
       "blockedRequests": []
     },
     {
-      "sessionId": "SYNC-1793795303491-L6OU",
-      "startedAt": "2026-11-04T12:28:23.490Z",
-      "completedAt": "2026-11-04T12:28:23.591Z",
+      "sessionId": "SYNC-1793880901576-7C3Z",
+      "startedAt": "2026-11-05T12:15:01.585Z",
+      "completedAt": "2026-11-05T12:15:01.781Z",
+      "durationMs": 196,
+      "originPin": "400703",
+      "totalItems": 3,
+      "liveCount": 3,
+      "cachedCount": 0,
+      "pinExceptionCount": 0,
+      "blockedCount": 0,
+      "successRate": 100,
+      "status": "healthy",
+      "blockedRequests": []
+    },
+    {
+      "sessionId": "SYNC-1793880825132-EZEC",
+      "startedAt": "2026-11-05T12:13:45.133Z",
+      "completedAt": "2026-11-05T12:13:45.133Z",
       "durationMs": 0,
       "originPin": "400703",
-      "totalItems": 24,
+      "totalItems": 1,
       "liveCount": 0,
-      "cachedCount": 24,
+      "cachedCount": 1,
       "pinExceptionCount": 0,
       "blockedCount": 0,
       "successRate": 100,
@@ -829023,44 +829380,14 @@
       "blockedRequests": []
     },
     {
-      "sessionId": "SYNC-1793795282493-3TVO",
-      "startedAt": "2026-11-04T12:28:02.492Z",
-      "completedAt": "2026-11-04T12:28:02.721Z",
-      "durationMs": 2,
-      "originPin": "400703",
-      "totalItems": 24,
-      "liveCount": 0,
-      "cachedCount": 24,
-      "pinExceptionCount": 0,
-      "blockedCount": 0,
-      "successRate": 100,
-      "status": "healthy",
-      "blockedRequests": []
-    },
-    {
-      "sessionId": "SYNC-1793795131303-X7YL",
-      "startedAt": "2026-11-04T12:25:31.304Z",
-      "completedAt": "2026-11-04T12:25:31.391Z",
-      "durationMs": 1,
-      "originPin": "400703",
-      "totalItems": 24,
-      "liveCount": 0,
-      "cachedCount": 24,
-      "pinExceptionCount": 0,
-      "blockedCount": 0,
-      "successRate": 100,
-      "status": "healthy",
-      "blockedRequests": []
-    },
-    {
-      "sessionId": "SYNC-1793795128685-XBA1",
-      "startedAt": "2026-11-04T12:25:28.689Z",
-      "completedAt": "2026-11-04T12:25:28.824Z",
+      "sessionId": "SYNC-1793880824868-9LF3",
+      "startedAt": "2026-11-05T12:13:44.872Z",
+      "completedAt": "2026-11-05T12:13:44.872Z",
       "durationMs": 0,
       "originPin": "400703",
-      "totalItems": 24,
+      "totalItems": 1,
       "liveCount": 0,
-      "cachedCount": 24,
+      "cachedCount": 1,
       "pinExceptionCount": 0,
       "blockedCount": 0,
       "successRate": 100,
@@ -829068,14 +829395,14 @@
       "blockedRequests": []
     },
     {
-      "sessionId": "SYNC-1793795097997-SNBI",
-      "startedAt": "2026-11-04T12:24:58.001Z",
-      "completedAt": "2026-11-04T12:24:58.142Z",
-      "durationMs": 1,
+      "sessionId": "SYNC-1793880561156-ZN8T",
+      "startedAt": "2026-11-05T12:09:21.161Z",
+      "completedAt": "2026-11-05T12:09:21.756Z",
+      "durationMs": 595,
       "originPin": "400703",
-      "totalItems": 24,
-      "liveCount": 0,
-      "cachedCount": 24,
+      "totalItems": 1,
+      "liveCount": 1,
+      "cachedCount": 0,
       "pinExceptionCount": 0,
       "blockedCount": 0,
       "successRate": 100,
@@ -829083,14 +829410,14 @@
       "blockedRequests": []
     },
     {
-      "sessionId": "SYNC-1793795055634-U9X9",
-      "startedAt": "2026-11-04T12:24:15.636Z",
-      "completedAt": "2026-11-04T12:24:15.724Z",
+      "sessionId": "SYNC-1793880494323-1HK3",
+      "startedAt": "2026-11-05T12:08:14.328Z",
+      "completedAt": "2026-11-05T12:08:14.328Z",
       "durationMs": 0,
       "originPin": "400703",
-      "totalItems": 24,
+      "totalItems": 1,
       "liveCount": 0,
-      "cachedCount": 24,
+      "cachedCount": 1,
       "pinExceptionCount": 0,
       "blockedCount": 0,
       "successRate": 100,
@@ -829098,14 +829425,44 @@
       "blockedRequests": []
     },
     {
-      "sessionId": "SYNC-1793795047927-G3LJ",
-      "startedAt": "2026-11-04T12:24:07.930Z",
-      "completedAt": "2026-11-04T12:24:08.057Z",
-      "durationMs": 2,
+      "sessionId": "SYNC-1793879827707-XB8P",
+      "startedAt": "2026-11-05T11:57:07.711Z",
+      "completedAt": "2026-11-05T11:57:08.141Z",
+      "durationMs": 430,
       "originPin": "400703",
-      "totalItems": 24,
-      "liveCount": 0,
-      "cachedCount": 24,
+      "totalItems": 1,
+      "liveCount": 1,
+      "cachedCount": 0,
+      "pinExceptionCount": 0,
+      "blockedCount": 0,
+      "successRate": 100,
+      "status": "healthy",
+      "blockedRequests": []
+    },
+    {
+      "sessionId": "SYNC-1793879776915-A8SE",
+      "startedAt": "2026-11-05T11:56:16.916Z",
+      "completedAt": "2026-11-05T11:56:17.363Z",
+      "durationMs": 447,
+      "originPin": "400703",
+      "totalItems": 1,
+      "liveCount": 1,
+      "cachedCount": 0,
+      "pinExceptionCount": 0,
+      "blockedCount": 0,
+      "successRate": 100,
+      "status": "healthy",
+      "blockedRequests": []
+    },
+    {
+      "sessionId": "SYNC-1793879775611-AN5E",
+      "startedAt": "2026-11-05T11:56:15.615Z",
+      "completedAt": "2026-11-05T11:56:16.243Z",
+      "durationMs": 628,
+      "originPin": "400703",
+      "totalItems": 1,
+      "liveCount": 1,
+      "cachedCount": 0,
       "pinExceptionCount": 0,
       "blockedCount": 0,
       "successRate": 100,

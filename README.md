@@ -2,6 +2,8 @@
 
 India Post Bulk Postage Calculator is a React and Express application for estimating India Post postage costs. It supports bulk spreadsheet-style calculations, CSV import/export, postal-circle exploration, GST totals, printable manifests, and live India Post tariff and PIN-code lookups with cached fallback data.
 
+For a beginner-friendly explanation of Node.js hosting, local Windows use, Ubuntu VPS deployment, data storage, domains, HTTPS, backups, and troubleshooting, see [HOSTING_GUIDE.md](HOSTING_GUIDE.md).
+
 ## Requirements
 
 - Node.js 20 or newer
